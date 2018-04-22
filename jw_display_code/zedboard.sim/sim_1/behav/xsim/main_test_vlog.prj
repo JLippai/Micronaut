@@ -1,0 +1,11 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../zedboard.srcs/sources_1/new/VGAcontrol.v" \
+"../../../../zedboard.srcs/sources_1/new/main.v" \
+"../../../../zedboard.srcs/sim_1/new/main_test.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
