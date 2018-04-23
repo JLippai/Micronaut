@@ -33,19 +33,6 @@ module main(
     output wire       VGA_VS
     );
     
-    // Clock Divider Counter
-    reg [26:0] counter;
-    
-    // Toggle LED
-    always @ (posedge GCLK) begin
-        if (counter == 100000000) begin
-            counter <= 0;
-            LD0 <= !LD0;
-        end else begin
-            counter <= counter + 1'b1;
-        end
-    end
-    
     // Drop Counters
     reg [15:0] goodDrops = 0;
     reg [15:0] badDrops = 0;
@@ -77,5 +64,20 @@ module main(
         .green(VGA_GRN),
         .red(VGA_RED)
     );
+    
+    // Clock Divider Counter
+    reg [26:0] counter;
+    
+    // Toggle LED
+    always @ (posedge GCLK) begin
+        if (counter == 100000000) begin
+            counter <= 0;
+            LD0 <= !LD0;
+            goodDrops <= goodDrops + 1;
+            badDrops <= badDrops + 2;
+        end else begin
+            counter <= counter + 1'b1;
+        end
+    end
     
 endmodule

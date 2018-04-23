@@ -14,24 +14,24 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 15392 
+INFO: Helper process launched with PID 24360 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 374.047 ; gain = 97.898
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 374.109 ; gain = 98.156
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-6157] synthesizing module 'main' [C:/devspace/school/ec551/project/zedboard/zedboard.srcs/sources_1/new/main.v:23]
-INFO: [Synth 8-638] synthesizing module 'VGA_timing_controller' [C:/devspace/school/ec551/project/zedboard/zedboard.srcs/sources_1/new/VGA_timing_controller.vhd:38]
-INFO: [Synth 8-3491] module 'clk_wiz_0' declared at 'C:/devspace/school/ec551/project/zedboard/zedboard.runs/synth_1/.Xil/Vivado-19216-JFW1702-WS/realtime/clk_wiz_0_stub.v:5' bound to instance 'clk_wiz_0_0' of component 'clk_wiz_0' [C:/devspace/school/ec551/project/zedboard/zedboard.srcs/sources_1/new/VGA_timing_controller.vhd:84]
-INFO: [Synth 8-6157] synthesizing module 'clk_wiz_0' [C:/devspace/school/ec551/project/zedboard/zedboard.runs/synth_1/.Xil/Vivado-19216-JFW1702-WS/realtime/clk_wiz_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_0' (1#1) [C:/devspace/school/ec551/project/zedboard/zedboard.runs/synth_1/.Xil/Vivado-19216-JFW1702-WS/realtime/clk_wiz_0_stub.v:5]
-INFO: [Synth 8-3491] module 'reset_synchronizer' declared at 'C:/devspace/school/ec551/project/zedboard/zedboard.srcs/sources_1/new/reset_synchronizer.vhd:28' bound to instance 'reset_synchronizer_0' of component 'reset_synchronizer' [C:/devspace/school/ec551/project/zedboard/zedboard.srcs/sources_1/new/VGA_timing_controller.vhd:93]
-INFO: [Synth 8-638] synthesizing module 'reset_synchronizer' [C:/devspace/school/ec551/project/zedboard/zedboard.srcs/sources_1/new/reset_synchronizer.vhd:41]
+INFO: [Synth 8-6157] synthesizing module 'main' [C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/main.v:23]
+INFO: [Synth 8-638] synthesizing module 'VGA_timing_controller' [C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/VGA_timing_controller.vhd:38]
+INFO: [Synth 8-3491] module 'clk_wiz_0' declared at 'C:/devspace/school/Micronaut/jw_display_code/zedboard.runs/synth_1/.Xil/Vivado-15484-JFW1702-WS/realtime/clk_wiz_0_stub.v:5' bound to instance 'clk_wiz_0_0' of component 'clk_wiz_0' [C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/VGA_timing_controller.vhd:84]
+INFO: [Synth 8-6157] synthesizing module 'clk_wiz_0' [C:/devspace/school/Micronaut/jw_display_code/zedboard.runs/synth_1/.Xil/Vivado-15484-JFW1702-WS/realtime/clk_wiz_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_0' (1#1) [C:/devspace/school/Micronaut/jw_display_code/zedboard.runs/synth_1/.Xil/Vivado-15484-JFW1702-WS/realtime/clk_wiz_0_stub.v:5]
+INFO: [Synth 8-3491] module 'reset_synchronizer' declared at 'C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/reset_synchronizer.vhd:28' bound to instance 'reset_synchronizer_0' of component 'reset_synchronizer' [C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/VGA_timing_controller.vhd:93]
+INFO: [Synth 8-638] synthesizing module 'reset_synchronizer' [C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/reset_synchronizer.vhd:41]
 	Parameter DEST_SYNC_FF_gen bound to: 2 - type: integer 
-INFO: [Synth 8-5534] Detected attribute (* async_reg = "true" *) [C:/devspace/school/ec551/project/zedboard/zedboard.srcs/sources_1/new/reset_synchronizer.vhd:43]
-INFO: [Synth 8-256] done synthesizing module 'reset_synchronizer' (2#1) [C:/devspace/school/ec551/project/zedboard/zedboard.srcs/sources_1/new/reset_synchronizer.vhd:41]
-INFO: [Synth 8-256] done synthesizing module 'VGA_timing_controller' (3#1) [C:/devspace/school/ec551/project/zedboard/zedboard.srcs/sources_1/new/VGA_timing_controller.vhd:38]
-WARNING: [Synth 8-689] width (12) of port connection 'hcnt_outp' does not match port width (32) of module 'VGA_timing_controller' [C:/devspace/school/ec551/project/zedboard/zedboard.srcs/sources_1/new/main.v:61]
-WARNING: [Synth 8-689] width (12) of port connection 'vcnt_outp' does not match port width (32) of module 'VGA_timing_controller' [C:/devspace/school/ec551/project/zedboard/zedboard.srcs/sources_1/new/main.v:62]
-INFO: [Synth 8-6157] synthesizing module 'display' [C:/devspace/school/ec551/project/zedboard/zedboard.srcs/sources_1/new/display.v:23]
+INFO: [Synth 8-5534] Detected attribute (* async_reg = "true" *) [C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/reset_synchronizer.vhd:43]
+INFO: [Synth 8-256] done synthesizing module 'reset_synchronizer' (2#1) [C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/reset_synchronizer.vhd:41]
+INFO: [Synth 8-256] done synthesizing module 'VGA_timing_controller' (3#1) [C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/VGA_timing_controller.vhd:38]
+WARNING: [Synth 8-689] width (12) of port connection 'hcnt_outp' does not match port width (32) of module 'VGA_timing_controller' [C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/main.v:48]
+WARNING: [Synth 8-689] width (12) of port connection 'vcnt_outp' does not match port width (32) of module 'VGA_timing_controller' [C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/main.v:49]
+INFO: [Synth 8-6157] synthesizing module 'display' [C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/display.v:23]
 	Parameter FONT_WIDTH bound to: 32 - type: integer 
 	Parameter FONT_HEIGHT bound to: 32 - type: integer 
 	Parameter FRAME_WIDTH bound to: 320 - type: integer 
@@ -42,64 +42,18 @@ INFO: [Synth 8-6157] synthesizing module 'display' [C:/devspace/school/ec551/pro
 	Parameter LOGO_Y_POS bound to: 700 - type: integer 
 	Parameter TEXT_X_POS bound to: 900 - type: integer 
 	Parameter TEXT_Y_POS bound to: 100 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'disp_char' [C:/devspace/school/ec551/project/zedboard/zedboard.srcs/sources_1/new/disp_char.v:40]
-INFO: [Synth 8-3876] $readmem data file 'char.list' is read successfully [C:/devspace/school/ec551/project/zedboard/zedboard.srcs/sources_1/new/disp_char.v:61]
-WARNING: [Synth 8-3848] Net out in module/entity disp_char does not have driver. [C:/devspace/school/ec551/project/zedboard/zedboard.srcs/sources_1/new/disp_char.v:44]
-INFO: [Synth 8-6155] done synthesizing module 'disp_char' (4#1) [C:/devspace/school/ec551/project/zedboard/zedboard.srcs/sources_1/new/disp_char.v:40]
-INFO: [Synth 8-6155] done synthesizing module 'display' (5#1) [C:/devspace/school/ec551/project/zedboard/zedboard.srcs/sources_1/new/display.v:23]
-INFO: [Synth 8-6155] done synthesizing module 'main' (6#1) [C:/devspace/school/ec551/project/zedboard/zedboard.srcs/sources_1/new/main.v:23]
-WARNING: [Synth 8-3331] design disp_char has unconnected port out
-WARNING: [Synth 8-3331] design disp_char has unconnected port char_sel[4]
-WARNING: [Synth 8-3331] design disp_char has unconnected port char_sel[3]
-WARNING: [Synth 8-3331] design disp_char has unconnected port char_sel[2]
-WARNING: [Synth 8-3331] design disp_char has unconnected port char_sel[1]
-WARNING: [Synth 8-3331] design disp_char has unconnected port char_sel[0]
-WARNING: [Synth 8-3331] design disp_char has unconnected port char_row[4]
-WARNING: [Synth 8-3331] design disp_char has unconnected port char_row[3]
-WARNING: [Synth 8-3331] design disp_char has unconnected port char_row[2]
-WARNING: [Synth 8-3331] design disp_char has unconnected port char_row[1]
-WARNING: [Synth 8-3331] design disp_char has unconnected port char_row[0]
-WARNING: [Synth 8-3331] design disp_char has unconnected port char_col[4]
-WARNING: [Synth 8-3331] design disp_char has unconnected port char_col[3]
-WARNING: [Synth 8-3331] design disp_char has unconnected port char_col[2]
-WARNING: [Synth 8-3331] design disp_char has unconnected port char_col[1]
-WARNING: [Synth 8-3331] design disp_char has unconnected port char_col[0]
+INFO: [Synth 8-6157] synthesizing module 'disp_char' [C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/disp_char.v:40]
+INFO: [Synth 8-3876] $readmem data file 'char.list' is read successfully [C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/disp_char.v:61]
+INFO: [Synth 8-6155] done synthesizing module 'disp_char' (4#1) [C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/disp_char.v:40]
+WARNING: [Synth 8-689] width (5) of port connection 'char_row' does not match port width (6) of module 'disp_char' [C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/display.v:60]
+WARNING: [Synth 8-689] width (5) of port connection 'char_col' does not match port width (6) of module 'disp_char' [C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/display.v:61]
+INFO: [Synth 8-6155] done synthesizing module 'display' (5#1) [C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/display.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'main' (6#1) [C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/main.v:23]
+WARNING: [Synth 8-3331] design disp_char has unconnected port char_col[5]
 WARNING: [Synth 8-3331] design disp_char has unconnected port clk
 WARNING: [Synth 8-3331] design disp_char has unconnected port rst
-WARNING: [Synth 8-3331] design display has unconnected port goodDrops[15]
-WARNING: [Synth 8-3331] design display has unconnected port goodDrops[14]
-WARNING: [Synth 8-3331] design display has unconnected port goodDrops[13]
-WARNING: [Synth 8-3331] design display has unconnected port goodDrops[12]
-WARNING: [Synth 8-3331] design display has unconnected port goodDrops[11]
-WARNING: [Synth 8-3331] design display has unconnected port goodDrops[10]
-WARNING: [Synth 8-3331] design display has unconnected port goodDrops[9]
-WARNING: [Synth 8-3331] design display has unconnected port goodDrops[8]
-WARNING: [Synth 8-3331] design display has unconnected port goodDrops[7]
-WARNING: [Synth 8-3331] design display has unconnected port goodDrops[6]
-WARNING: [Synth 8-3331] design display has unconnected port goodDrops[5]
-WARNING: [Synth 8-3331] design display has unconnected port goodDrops[4]
-WARNING: [Synth 8-3331] design display has unconnected port goodDrops[3]
-WARNING: [Synth 8-3331] design display has unconnected port goodDrops[2]
-WARNING: [Synth 8-3331] design display has unconnected port goodDrops[1]
-WARNING: [Synth 8-3331] design display has unconnected port goodDrops[0]
-WARNING: [Synth 8-3331] design display has unconnected port badDrops[15]
-WARNING: [Synth 8-3331] design display has unconnected port badDrops[14]
-WARNING: [Synth 8-3331] design display has unconnected port badDrops[13]
-WARNING: [Synth 8-3331] design display has unconnected port badDrops[12]
-WARNING: [Synth 8-3331] design display has unconnected port badDrops[11]
-WARNING: [Synth 8-3331] design display has unconnected port badDrops[10]
-WARNING: [Synth 8-3331] design display has unconnected port badDrops[9]
-WARNING: [Synth 8-3331] design display has unconnected port badDrops[8]
-WARNING: [Synth 8-3331] design display has unconnected port badDrops[7]
-WARNING: [Synth 8-3331] design display has unconnected port badDrops[6]
-WARNING: [Synth 8-3331] design display has unconnected port badDrops[5]
-WARNING: [Synth 8-3331] design display has unconnected port badDrops[4]
-WARNING: [Synth 8-3331] design display has unconnected port badDrops[3]
-WARNING: [Synth 8-3331] design display has unconnected port badDrops[2]
-WARNING: [Synth 8-3331] design display has unconnected port badDrops[1]
-WARNING: [Synth 8-3331] design display has unconnected port badDrops[0]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 428.484 ; gain = 152.336
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 428.938 ; gain = 152.984
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -108,68 +62,68 @@ Report Check Netlist:
 +------+------------------+-------+---------+-------+------------------+
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
-WARNING: [Synth 8-3295] tying undriven pin vga:rst_inp to constant 0 [C:/devspace/school/ec551/project/zedboard/zedboard.srcs/sources_1/new/main.v:58]
-WARNING: [Synth 8-3295] tying undriven pin disp:rst to constant 0 [C:/devspace/school/ec551/project/zedboard/zedboard.srcs/sources_1/new/main.v:68]
+WARNING: [Synth 8-3295] tying undriven pin vga:rst_inp to constant 0 [C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/main.v:45]
+WARNING: [Synth 8-3295] tying undriven pin disp:rst to constant 0 [C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/main.v:55]
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 428.484 ; gain = 152.336
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 428.938 ; gain = 152.984
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 428.484 ; gain = 152.336
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 428.938 ; gain = 152.984
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7z020clg484-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [c:/devspace/school/ec551/project/zedboard/zedboard.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc] for cell 'vga/clk_wiz_0_0'
-Finished Parsing XDC File [c:/devspace/school/ec551/project/zedboard/zedboard.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc] for cell 'vga/clk_wiz_0_0'
-Parsing XDC File [C:/devspace/school/ec551/project/zedboard/zedboard_master_constraints.xdc]
-WARNING: [Vivado 12-584] No ports matched '[get_ports -of_objects [get_iobanks 33]]'. [C:/devspace/school/ec551/project/zedboard/zedboard_master_constraints.xdc:362]
-WARNING: [Vivado 12-584] No ports matched '[get_ports -of_objects [get_iobanks 34]]'. [C:/devspace/school/ec551/project/zedboard/zedboard_master_constraints.xdc:367]
-WARNING: [Vivado 12-584] No ports matched '[get_ports -of_objects [get_iobanks 35]]'. [C:/devspace/school/ec551/project/zedboard/zedboard_master_constraints.xdc:372]
-WARNING: [Vivado 12-584] No ports matched '[get_ports -of_objects [get_iobanks 13]]'. [C:/devspace/school/ec551/project/zedboard/zedboard_master_constraints.xdc:375]
-Finished Parsing XDC File [C:/devspace/school/ec551/project/zedboard/zedboard_master_constraints.xdc]
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/devspace/school/ec551/project/zedboard/zedboard_master_constraints.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/main_propImpl.xdc].
+Parsing XDC File [c:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc] for cell 'vga/clk_wiz_0_0'
+Finished Parsing XDC File [c:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc] for cell 'vga/clk_wiz_0_0'
+Parsing XDC File [C:/devspace/school/Micronaut/jw_display_code/zedboard_master_constraints.xdc]
+WARNING: [Vivado 12-584] No ports matched '[get_ports -of_objects [get_iobanks 33]]'. [C:/devspace/school/Micronaut/jw_display_code/zedboard_master_constraints.xdc:362]
+WARNING: [Vivado 12-584] No ports matched '[get_ports -of_objects [get_iobanks 34]]'. [C:/devspace/school/Micronaut/jw_display_code/zedboard_master_constraints.xdc:367]
+WARNING: [Vivado 12-584] No ports matched '[get_ports -of_objects [get_iobanks 35]]'. [C:/devspace/school/Micronaut/jw_display_code/zedboard_master_constraints.xdc:372]
+WARNING: [Vivado 12-584] No ports matched '[get_ports -of_objects [get_iobanks 13]]'. [C:/devspace/school/Micronaut/jw_display_code/zedboard_master_constraints.xdc:375]
+Finished Parsing XDC File [C:/devspace/school/Micronaut/jw_display_code/zedboard_master_constraints.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/devspace/school/Micronaut/jw_display_code/zedboard_master_constraints.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/main_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/main_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.012 . Memory (MB): peak = 794.875 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 795.301 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:21 ; elapsed = 00:00:24 . Memory (MB): peak = 794.875 ; gain = 518.727
+Finished Constraint Validation : Time (s): cpu = 00:00:19 ; elapsed = 00:00:23 . Memory (MB): peak = 795.301 ; gain = 519.348
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:21 ; elapsed = 00:00:24 . Memory (MB): peak = 794.875 ; gain = 518.727
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:19 ; elapsed = 00:00:23 . Memory (MB): peak = 795.301 ; gain = 519.348
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
-Applied set_property IO_BUFFER_TYPE = NONE for GCLK. (constraint file  c:/devspace/school/ec551/project/zedboard/zedboard.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc, line 3).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for GCLK. (constraint file  c:/devspace/school/ec551/project/zedboard/zedboard.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc, line 4).
+Applied set_property IO_BUFFER_TYPE = NONE for GCLK. (constraint file  c:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc, line 3).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for GCLK. (constraint file  c:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc, line 4).
 Applied set_property DONT_TOUCH = true for vga/clk_wiz_0_0. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:21 ; elapsed = 00:00:25 . Memory (MB): peak = 794.875 ; gain = 518.727
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:19 ; elapsed = 00:00:23 . Memory (MB): peak = 795.301 ; gain = 519.348
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5546] ROM "hsync_outp" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "hsync_outp" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "counter_line_sig" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5587] ROM size for "char_sel" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5546] ROM "char_img" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5545] ROM "LD0" won't be mapped to RAM because address size (27) is larger than maximum supported(25)
-WARNING: [Synth 8-327] inferring latch for variable 'char_sel_reg' [C:/devspace/school/ec551/project/zedboard/zedboard.srcs/sources_1/new/display.v:59]
-WARNING: [Synth 8-327] inferring latch for variable 'char_row_reg' [C:/devspace/school/ec551/project/zedboard/zedboard.srcs/sources_1/new/display.v:60]
-WARNING: [Synth 8-327] inferring latch for variable 'char_col_reg' [C:/devspace/school/ec551/project/zedboard/zedboard.srcs/sources_1/new/display.v:61]
-WARNING: [Synth 8-327] inferring latch for variable 'text_grid_reg' [C:/devspace/school/ec551/project/zedboard/zedboard.srcs/sources_1/new/display.v:77]
+WARNING: [Synth 8-327] inferring latch for variable 'char_sel_reg' [C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/display.v:59]
+WARNING: [Synth 8-327] inferring latch for variable 'char_row_reg' [C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/display.v:60]
+WARNING: [Synth 8-327] inferring latch for variable 'char_col_reg' [C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/display.v:61]
+WARNING: [Synth 8-327] inferring latch for variable 'text_grid_reg' [C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/display.v:78]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:21 ; elapsed = 00:00:25 . Memory (MB): peak = 794.875 ; gain = 518.727
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:20 ; elapsed = 00:00:24 . Memory (MB): peak = 795.301 ; gain = 519.348
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -182,23 +136,24 @@ Start RTL Component Statistics
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
+	   2 Input     32 Bit       Adders := 1     
 	   2 Input     27 Bit       Adders := 1     
 	   2 Input     12 Bit       Adders := 1     
 	   2 Input     11 Bit       Adders := 1     
-	   2 Input      5 Bit       Adders := 2     
-	   2 Input      4 Bit       Adders := 1     
+	   2 Input     10 Bit       Adders := 1     
+	   2 Input      5 Bit       Adders := 3     
 +---Registers : 
 	               27 Bit    Registers := 1     
 	               12 Bit    Registers := 1     
 	               11 Bit    Registers := 1     
 	                1 Bit    Registers := 6     
 +---Muxes : 
+	 545 Input     32 Bit        Muxes := 1     
 	   2 Input     27 Bit        Muxes := 1     
 	   2 Input     12 Bit        Muxes := 1     
 	   2 Input     11 Bit        Muxes := 1     
-	   2 Input      5 Bit        Muxes := 1     
-	   2 Input      4 Bit        Muxes := 8     
-	  15 Input      3 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 2     
+	   2 Input      4 Bit        Muxes := 14    
 	   2 Input      1 Bit        Muxes := 4     
 	   3 Input      1 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
@@ -236,15 +191,20 @@ Detailed RTL Component Info :
 	   2 Input     11 Bit        Muxes := 1     
 	   2 Input      1 Bit        Muxes := 3     
 	   3 Input      1 Bit        Muxes := 1     
+Module disp_char 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     10 Bit       Adders := 1     
++---Muxes : 
+	 545 Input     32 Bit        Muxes := 1     
 Module display 
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input      5 Bit       Adders := 2     
-	   2 Input      4 Bit       Adders := 1     
+	   2 Input     32 Bit       Adders := 1     
+	   2 Input      5 Bit       Adders := 3     
 +---Muxes : 
-	   2 Input      5 Bit        Muxes := 1     
-	   2 Input      4 Bit        Muxes := 8     
-	  15 Input      3 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 2     
+	   2 Input      4 Bit        Muxes := 14    
 ---------------------------------------------------------------------------------
 Finished RTL Hierarchical Component Statistics
 ---------------------------------------------------------------------------------
@@ -264,28 +224,15 @@ Warning: Parallel synthesis criteria is not met
 INFO: [Synth 8-5546] ROM "vga/counter_line_sig" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "vga/hsync_outp" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5545] ROM "LD0" won't be mapped to RAM because address size (27) is larger than maximum supported(25)
-WARNING: [Synth 8-3332] Sequential element (disp/char_sel_reg[4]) is unused and will be removed from module main.
-WARNING: [Synth 8-3332] Sequential element (disp/char_sel_reg[3]) is unused and will be removed from module main.
-WARNING: [Synth 8-3332] Sequential element (disp/char_sel_reg[2]) is unused and will be removed from module main.
-WARNING: [Synth 8-3332] Sequential element (disp/char_sel_reg[1]) is unused and will be removed from module main.
-WARNING: [Synth 8-3332] Sequential element (disp/char_sel_reg[0]) is unused and will be removed from module main.
-WARNING: [Synth 8-3332] Sequential element (disp/char_row_reg[4]) is unused and will be removed from module main.
-WARNING: [Synth 8-3332] Sequential element (disp/char_row_reg[3]) is unused and will be removed from module main.
-WARNING: [Synth 8-3332] Sequential element (disp/char_row_reg[2]) is unused and will be removed from module main.
-WARNING: [Synth 8-3332] Sequential element (disp/char_row_reg[1]) is unused and will be removed from module main.
-WARNING: [Synth 8-3332] Sequential element (disp/char_row_reg[0]) is unused and will be removed from module main.
-WARNING: [Synth 8-3332] Sequential element (disp/char_col_reg[4]) is unused and will be removed from module main.
-WARNING: [Synth 8-3332] Sequential element (disp/char_col_reg[3]) is unused and will be removed from module main.
-WARNING: [Synth 8-3332] Sequential element (disp/char_col_reg[2]) is unused and will be removed from module main.
-WARNING: [Synth 8-3332] Sequential element (disp/char_col_reg[1]) is unused and will be removed from module main.
-WARNING: [Synth 8-3332] Sequential element (disp/char_col_reg[0]) is unused and will be removed from module main.
-WARNING: [Synth 8-3332] Sequential element (disp/text_grid_reg[4]) is unused and will be removed from module main.
-WARNING: [Synth 8-3332] Sequential element (disp/text_grid_reg[3]) is unused and will be removed from module main.
-WARNING: [Synth 8-3332] Sequential element (disp/text_grid_reg[2]) is unused and will be removed from module main.
-WARNING: [Synth 8-3332] Sequential element (disp/text_grid_reg[1]) is unused and will be removed from module main.
-WARNING: [Synth 8-3332] Sequential element (disp/text_grid_reg[0]) is unused and will be removed from module main.
+WARNING: [Synth 8-3331] design disp_char has unconnected port char_col[5]
+WARNING: [Synth 8-3331] design disp_char has unconnected port clk
+WARNING: [Synth 8-3331] design disp_char has unconnected port rst
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_3/\badDrops_reg[0] )
+WARNING: [Synth 8-3332] Sequential element (char_row_reg[1]) is unused and will be removed from module display.
+WARNING: [Synth 8-3332] Sequential element (char_row_reg[0]) is unused and will be removed from module display.
+WARNING: [Synth 8-3332] Sequential element (char_col_reg[0]) is unused and will be removed from module display.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:26 . Memory (MB): peak = 794.875 ; gain = 518.727
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:25 ; elapsed = 00:00:29 . Memory (MB): peak = 795.301 ; gain = 519.348
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -299,13 +246,13 @@ Start Applying XDC Timing Constraints
 INFO: [Synth 8-5578] Moved timing constraint from pin 'vga/clk_wiz_0_0/clk_out1' to pin 'vga/clk_wiz_0_0/bbstub_clk_out1/O'
 INFO: [Synth 8-5819] Moved 1 constraints on hierarchical pins to their respective driving/loading pins
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:33 ; elapsed = 00:00:38 . Memory (MB): peak = 794.875 ; gain = 518.727
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:35 ; elapsed = 00:00:41 . Memory (MB): peak = 795.301 ; gain = 519.348
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:33 ; elapsed = 00:00:38 . Memory (MB): peak = 808.168 ; gain = 532.020
+Finished Timing Optimization : Time (s): cpu = 00:00:36 ; elapsed = 00:00:41 . Memory (MB): peak = 809.910 ; gain = 533.957
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -317,7 +264,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:33 ; elapsed = 00:00:38 . Memory (MB): peak = 809.316 ; gain = 533.168
+Finished Technology Mapping : Time (s): cpu = 00:00:36 ; elapsed = 00:00:42 . Memory (MB): peak = 821.250 ; gain = 545.297
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -342,7 +289,7 @@ Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 CRITICAL WARNING: [Synth 8-4442] BlackBox module \vga/clk_wiz_0_0  has unconnected pin reset
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:34 ; elapsed = 00:00:39 . Memory (MB): peak = 809.316 ; gain = 533.168
+Finished IO Insertion : Time (s): cpu = 00:00:37 ; elapsed = 00:00:43 . Memory (MB): peak = 821.250 ; gain = 545.297
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -355,7 +302,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:34 ; elapsed = 00:00:39 . Memory (MB): peak = 809.316 ; gain = 533.168
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:37 ; elapsed = 00:00:43 . Memory (MB): peak = 821.250 ; gain = 545.297
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -367,25 +314,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:34 ; elapsed = 00:00:39 . Memory (MB): peak = 809.316 ; gain = 533.168
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:38 ; elapsed = 00:00:43 . Memory (MB): peak = 821.250 ; gain = 545.297
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:34 ; elapsed = 00:00:39 . Memory (MB): peak = 809.316 ; gain = 533.168
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:38 ; elapsed = 00:00:43 . Memory (MB): peak = 821.250 ; gain = 545.297
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:34 ; elapsed = 00:00:39 . Memory (MB): peak = 809.316 ; gain = 533.168
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:38 ; elapsed = 00:00:43 . Memory (MB): peak = 821.250 ; gain = 545.297
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:34 ; elapsed = 00:00:39 . Memory (MB): peak = 809.316 ; gain = 533.168
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:38 ; elapsed = 00:00:43 . Memory (MB): peak = 821.250 ; gain = 545.297
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -403,45 +350,49 @@ Report Cell Usage:
 |      |Cell      |Count |
 +------+----------+------+
 |1     |clk_wiz_0 |     1|
-|2     |CARRY4    |    11|
-|3     |LUT1      |     3|
-|4     |LUT2      |    25|
-|5     |LUT3      |     6|
-|6     |LUT4      |    14|
-|7     |LUT5      |     7|
-|8     |LUT6      |    23|
-|9     |FDRE      |    56|
-|10    |OBUF      |    15|
+|2     |CARRY4    |   141|
+|3     |LUT1      |    64|
+|4     |LUT2      |   248|
+|5     |LUT3      |   106|
+|6     |LUT4      |   142|
+|7     |LUT5      |   178|
+|8     |LUT6      |   483|
+|9     |MUXF7     |    12|
+|10    |FDRE      |    87|
+|11    |LD        |    17|
+|12    |OBUF      |    15|
 +------+----------+------+
 
 Report Instance Areas: 
 +------+-------------------------+----------------------+------+
 |      |Instance                 |Module                |Cells |
 +------+-------------------------+----------------------+------+
-|1     |top                      |                      |   162|
-|2     |  vga                    |VGA_timing_controller |   102|
-|3     |    reset_synchronizer_0 |reset_synchronizer    |     2|
+|1     |top                      |                      |  1495|
+|2     |  disp                   |display               |   839|
+|3     |  vga                    |VGA_timing_controller |   123|
+|4     |    reset_synchronizer_0 |reset_synchronizer    |     2|
 +------+-------------------------+----------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:34 ; elapsed = 00:00:39 . Memory (MB): peak = 809.316 ; gain = 533.168
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:38 ; elapsed = 00:00:43 . Memory (MB): peak = 821.250 ; gain = 545.297
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 1 critical warnings and 24 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:19 ; elapsed = 00:00:29 . Memory (MB): peak = 809.316 ; gain = 166.777
-Synthesis Optimization Complete : Time (s): cpu = 00:00:34 ; elapsed = 00:00:40 . Memory (MB): peak = 809.316 ; gain = 533.168
+Synthesis finished with 0 errors, 1 critical warnings and 10 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:24 ; elapsed = 00:00:33 . Memory (MB): peak = 821.250 ; gain = 178.934
+Synthesis Optimization Complete : Time (s): cpu = 00:00:38 ; elapsed = 00:00:43 . Memory (MB): peak = 821.250 ; gain = 545.297
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 11 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 170 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-140] Inserted 1 IBUFs to IO ports without IO buffers.
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
+  A total of 17 instances were transformed.
+  LD => LDCE: 17 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-39 Infos, 83 Warnings, 1 Critical Warnings and 0 Errors encountered.
+40 Infos, 23 Warnings, 1 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:36 ; elapsed = 00:00:43 . Memory (MB): peak = 811.441 ; gain = 546.766
-INFO: [Common 17-1381] The checkpoint 'C:/devspace/school/ec551/project/zedboard/zedboard.runs/synth_1/main.dcp' has been generated.
+synth_design: Time (s): cpu = 00:00:40 ; elapsed = 00:00:47 . Memory (MB): peak = 821.250 ; gain = 556.766
+INFO: [Common 17-1381] The checkpoint 'C:/devspace/school/Micronaut/jw_display_code/zedboard.runs/synth_1/main.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file main_utilization_synth.rpt -pb main_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.044 . Memory (MB): peak = 811.441 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Sat Apr 21 23:56:31 2018...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.050 . Memory (MB): peak = 821.250 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Sun Apr 22 21:08:07 2018...

@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='C:/devspace/school/ec551/project/zedboard/zedboard.runs/synth_1'
+HD_PWD='C:/devspace/school/Micronaut/jw_display_code/zedboard.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

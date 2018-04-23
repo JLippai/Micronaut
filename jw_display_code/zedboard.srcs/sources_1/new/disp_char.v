@@ -19,28 +19,28 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-`define CHAR_SPACE 0
-`define CHAR_COLON 1
-`define CHAR_A 2
-`define CHAR_B 3
-`define CHAR_D 4
-`define CHAR_G 5
-`define CHAR_O 6
-`define CHAR_1 7
-`define CHAR_2 8
-`define CHAR_3 9
-`define CHAR_4 10
-`define CHAR_5 11
-`define CHAR_6 12
-`define CHAR_7 13
-`define CHAR_8 14
-`define CHAR_9 15
-`define CHAR_0 16
+`define CHAR_0 0
+`define CHAR_1 1
+`define CHAR_2 2
+`define CHAR_3 3
+`define CHAR_4 4
+`define CHAR_5 5
+`define CHAR_6 6
+`define CHAR_7 7
+`define CHAR_8 8
+`define CHAR_9 9
+`define CHAR_SPACE 10
+`define CHAR_COLON 11
+`define CHAR_A 12
+`define CHAR_B 13
+`define CHAR_D 14
+`define CHAR_G 15
+`define CHAR_O 16
 
 module disp_char(
     input  wire [4:0] char_sel,
-    input  wire [4:0] char_row,
-    input  wire [4:0] char_col,
+    input  wire [5:0] char_row,
+    input  wire [5:0] char_col,
 	output wire       out,
 
 	input  wire       clk,
@@ -55,12 +55,13 @@ module disp_char(
     
     wire [9:0] char_addr;
     
-    assign char_addr = {char_sel, 3'b00000};
+    assign char_addr = {char_sel, 5'b00000};
     
     initial begin
         $readmemb("char.list", char_img);
     end
     
+    assign out = char_img[char_addr + char_row][31 - char_col];
     
     
 endmodule

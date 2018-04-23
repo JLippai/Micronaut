@@ -28,36 +28,18 @@ module main_test(
     // LEDs
     wire LD0;
     // VGA
-    wire VGA_B1;
-    wire VGA_B2;
-    wire VGA_B3;
-    wire VGA_B4;
-    wire VGA_G1;
-    wire VGA_G2;
-    wire VGA_G3;
-    wire VGA_G4;
-    wire VGA_R1;
-    wire VGA_R2;
-    wire VGA_R3;
-    wire VGA_R4;
+    wire [3:0] VGA_BLU;
+    wire [3:0] VGA_GRN;
+    wire [3:0] VGA_RED;
     wire VGA_HS;
     wire VGA_VS;
     
     main uut (
         .GCLK(GCLK),
         .LD0(LD0),
-        .VGA_B1(VGA_B1),
-        .VGA_B2(VGA_B2),
-        .VGA_B3(VGA_B3),
-        .VGA_B4(VGA_B4),
-        .VGA_G1(VGA_G1),
-        .VGA_G2(VGA_G2),
-        .VGA_G3(VGA_G3),
-        .VGA_G4(VGA_G4),
-        .VGA_R1(VGA_R1),
-        .VGA_R2(VGA_R2),
-        .VGA_R3(VGA_R3),
-        .VGA_R4(VGA_R4),
+        .VGA_BLU(VGA_BLU),
+        .VGA_GRN(VGA_GRN),
+        .VGA_RED(VGA_RED),
         .VGA_HS(VGA_HS),
         .VGA_VS(VGA_VS)
     );
