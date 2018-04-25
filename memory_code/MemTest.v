@@ -19,7 +19,6 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-
 module MemTest(
     input GCLK,
     output reg LD0
@@ -29,26 +28,26 @@ module MemTest(
     //input [63999:0] VGAReadAddress
     //output reg count = 128'b0
     );
-    reg [76799:0] count = 76799'b0;
+    reg [4799:0] readAddress = 4799'b0;     //19200 = 320 * 240 / 4 ... This is how many 4x4
     wire [127:0] pixelblock;
     
-    frameMem frame1(GCLK, count, pixelblock[127:96], pixelblock[95:64], pixelblock[63:31], pixelblock[31:0]);
+    frameMem frame1(GCLK, readAddress, pixelblock[127:96], pixelblock[95:64], pixelblock[63:32], pixelblock[31:0]);
     
     always@(posedge GCLK)
     begin 
-        if(count == {76799{1'b1}} && LD0==1'b0)
+        if(readAddress == {4799{1'b1}} && LD0==1'b0)
         begin
-            count = 76799'b0;
+            readAddress = 0;
             LD0 = 1'b1;
         end
-        else if(count == {76799{1'b1}} && LD0==1'b1)
+        else if(readAddress == {4799{1'b1}} && LD0==1'b1)
         begin
-            count = 128'b0;
-            LD0 = 1'b1;
+            readAddress = 0;
+            LD0 = 1'b0;
         end
         else
         begin
-            count = count + 3'd4;
+            readAddress = readAddress + 3'd4;
         end
     end
     
