@@ -28,6 +28,8 @@ module display_test(
     reg rst;
     reg [11:0] pixelCol;
     reg [11:0] pixelRow;
+    wire  [16:0] frPixAddress;
+    wire  [16:0] logoPixAddress;
     reg vid_en;
     reg [15:0] goodDrops;
     reg [15:0] badDrops;
@@ -43,6 +45,8 @@ module display_test(
         .vid_en(vid_en),
         .goodDrops(goodDrops),
         .badDrops(badDrops),
+        .logoPixAddress(logoPixAddress),
+        .frPixAddress(frPixAddress),
         .blue(blue),
         .green(green),
         .red(red)
@@ -63,9 +67,9 @@ module display_test(
         
         // Add stimulus here
         
-        for (pixelRow = 132; pixelRow < 164; pixelRow = pixelRow + 1) begin
+        for (pixelRow = 700; pixelRow < 940; pixelRow = pixelRow + 1) begin
             #10;
-            for (pixelCol = 900; pixelCol < 1284; pixelCol = pixelCol +1) begin
+            for (pixelCol = 600; pixelCol < 920; pixelCol = pixelCol +1) begin
                 #2;
             end
             

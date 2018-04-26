@@ -36,6 +36,9 @@
 `define CHAR_D 14
 `define CHAR_G 15
 `define CHAR_O 16
+`define CHAR_L 17
+`define CHAR_U 18
+`define CHAR_Y 19
 
 module disp_char(
     input  wire [4:0] char_sel,
@@ -51,7 +54,7 @@ module disp_char(
     // 32 bit height
     // 'B' 'A' 'D' 'G' 'O' 'O' 'D' ' ' ':' '1' '2' '3' '4' '5' '6' '7' '8' '9' '0'
     // 17 Possible charaters to be displayed
-    reg  [31:0] char_img [(17*32)-1:0];
+    reg  [31:0] char_img [(20*32)-1:0];
     
     wire [9:0] char_addr;
     

@@ -36,11 +36,18 @@ module main(
     // Drop Counters
     reg [15:0] goodDrops = 0;
     reg [15:0] badDrops = 0;
+    reg [15:0] uglyDrops = 0;
     
     // VGA Related Variables
     wire [11:0] hcnt;
     wire [11:0] vcnt;
     wire vid_en;
+    
+    // Memory Addressing
+    wire [ 12:0] readBlockAddress;
+    wire [ 16:0] readByteAddress;
+    wire [127:0] pixelBlockOut;
+    wire [  7:0] pixelOut;
     
     VGA_timing_controller vga(
         .clk_100MHz_inp(GCLK),
@@ -60,9 +67,19 @@ module main(
         .vid_en(vid_en),
         .goodDrops(goodDrops),
         .badDrops(badDrops),
+        .uglyDrops(uglyDrops),
+        .logoPixel(pixelOut),
+        .logoPixAddress(readByteAddress),
         .blue(VGA_BLU),
         .green(VGA_GRN),
         .red(VGA_RED)
+    );
+    
+    Memory mem(
+        .readBlockAddress(readBlockAddress),
+        .readByteAddress(readByteAddress),
+        .pixelBlockOut(pixelBlockOut),
+        .pixelOut(pixelOut)
     );
     
     // Clock Divider Counter
