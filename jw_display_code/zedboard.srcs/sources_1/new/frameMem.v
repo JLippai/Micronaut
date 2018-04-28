@@ -28,13 +28,20 @@
 `define THREE_COLS 3
 
 module frameMem(
-        input [12:0] readBlockAddress,
         input [16:0] readByteAddress,
-        output [31:0] pixBlockRow0,
-        output [31:0] pixBlockRow1,
-        output [31:0] pixBlockRow2,
-        output [31:0] pixBlockRow3,
-        output [7:0] pixelOut
+        input [12:0] readBlockAddress,
+        input [12:0] writeBlockAddress,
+        input [31:0] writePixBlockRow0,
+        input [31:0] writePixBlockRow1,
+        input [31:0] writePixBlockRow2,
+        input [31:0] writePixBlockRow3,
+        output [31:0] readPixBlockRow0,
+        output [31:0] readPixBlockRow1,
+        output [31:0] readPixBlockRow2,
+        output [31:0] readPixBlockRow3,
+        output [7:0] pixelOut,
+        output writeEnable,
+        output readEnable
         );
     
     reg [7:0] memFile [76799:0]; //byte addressable and 320x240 big
@@ -48,28 +55,28 @@ module frameMem(
     //loading up the output blocks with the correct addresses from the memFile
     
     //column 1 //filling in [31:24]
-    assign pixBlockRow0[((4)*8-1):((3)*8)] = memFile[readBlockAddress*16]; 
-    assign pixBlockRow1[((4)*8-1):((3)*8)] = memFile[(readBlockAddress*16+`ONE_ROW)];
-    assign pixBlockRow2[((4)*8-1):((3)*8)] = memFile[(readBlockAddress*16+`TWO_ROWS)];
-    assign pixBlockRow3[((4)*8-1):((3)*8)] = memFile[(readBlockAddress*16+`THREE_ROWS)];
+    assign readPixBlockRow0[((4)*8-1):((3)*8)] = memFile[readBlockAddress*16]; 
+    assign readPixBlockRow1[((4)*8-1):((3)*8)] = memFile[(readBlockAddress*16+`ONE_ROW)];
+    assign readPixBlockRow2[((4)*8-1):((3)*8)] = memFile[(readBlockAddress*16+`TWO_ROWS)];
+    assign readPixBlockRow3[((4)*8-1):((3)*8)] = memFile[(readBlockAddress*16+`THREE_ROWS)];
     
     //column 2 //filling in [23:16]
-    assign pixBlockRow0[((3)*8-1):((2)*8)] = memFile[(readBlockAddress)*16+`ONE_COL];
-    assign pixBlockRow1[((3)*8-1):((2)*8)] = memFile[((readBlockAddress)*16+`ONE_ROW+`ONE_COL)];
-    assign pixBlockRow2[((3)*8-1):((2)*8)] = memFile[(readBlockAddress*16+`TWO_ROWS+`ONE_COL)];
-    assign pixBlockRow3[((3)*8-1):((2)*8)] = memFile[(readBlockAddress*16+`THREE_ROWS+`ONE_COL)];
+    assign readPixBlockRow0[((3)*8-1):((2)*8)] = memFile[(readBlockAddress)*16+`ONE_COL];
+    assign readPixBlockRow1[((3)*8-1):((2)*8)] = memFile[((readBlockAddress)*16+`ONE_ROW+`ONE_COL)];
+    assign readPixBlockRow2[((3)*8-1):((2)*8)] = memFile[(readBlockAddress*16+`TWO_ROWS+`ONE_COL)];
+    assign readPixBlockRow3[((3)*8-1):((2)*8)] = memFile[(readBlockAddress*16+`THREE_ROWS+`ONE_COL)];
     
     //column 3  //filling in [15:8]
-    assign pixBlockRow0[((2)*8-1):((1)*8)] = memFile[readBlockAddress*16+`TWO_COLS];
-    assign pixBlockRow1[((2)*8-1):((1)*8)] = memFile[readBlockAddress*16+`ONE_ROW+`TWO_COLS];
-    assign pixBlockRow2[((2)*8-1):((1)*8)] = memFile[readBlockAddress*16+`TWO_ROWS+`TWO_COLS];
-    assign pixBlockRow3[((2)*8-1):((1)*8)] = memFile[readBlockAddress*16+`THREE_ROWS+`TWO_COLS];
+    assign readPixBlockRow0[((2)*8-1):((1)*8)] = memFile[readBlockAddress*16+`TWO_COLS];
+    assign readPixBlockRow1[((2)*8-1):((1)*8)] = memFile[readBlockAddress*16+`ONE_ROW+`TWO_COLS];
+    assign readPixBlockRow2[((2)*8-1):((1)*8)] = memFile[readBlockAddress*16+`TWO_ROWS+`TWO_COLS];
+    assign readPixBlockRow3[((2)*8-1):((1)*8)] = memFile[readBlockAddress*16+`THREE_ROWS+`TWO_COLS];
     
     //column 4  //filling in [7:0]
-    assign pixBlockRow0[((1)*8-1):((0)*8)] = memFile[readBlockAddress*16+`THREE_COLS];
-    assign pixBlockRow1[((1)*8-1):((0)*8)] = memFile[readBlockAddress*16+`ONE_ROW+`THREE_COLS];
-    assign pixBlockRow2[((1)*8-1):((0)*8)] = memFile[readBlockAddress*16+`TWO_ROWS+`THREE_COLS];
-    assign pixBlockRow3[((1)*8-1):((0)*8)] = memFile[readBlockAddress*16+`THREE_ROWS+`THREE_COLS];
+    assign readPixBlockRow0[((1)*8-1):((0)*8)] = memFile[readBlockAddress*16+`THREE_COLS];
+    assign readPixBlockRow1[((1)*8-1):((0)*8)] = memFile[readBlockAddress*16+`ONE_ROW+`THREE_COLS];
+    assign readPixBlockRow2[((1)*8-1):((0)*8)] = memFile[readBlockAddress*16+`TWO_ROWS+`THREE_COLS];
+    assign readPixBlockRow3[((1)*8-1):((0)*8)] = memFile[readBlockAddress*16+`THREE_ROWS+`THREE_COLS];
 
 
 
