@@ -1,0 +1,175 @@
+/*
+
+Xilinx Vivado v2018.1 (64-bit) [Major: 2018, Minor: 1]
+SW Build: 2188600 on Wed Apr  4 18:40:38 MDT 2018
+IP Build: 2185939 on Wed Apr  4 20:55:05 MDT 2018
+
+Process ID: 5484
+License: Customer
+
+Current time: 	Sat Apr 28 17:42:11 EDT 2018
+Time zone: 	Eastern Standard Time (America/New_York)
+
+OS: Windows 10
+OS Version: 10.0
+OS Architecture: amd64
+Available processors (cores): 8
+
+Screen size: 1920x1080
+Screen resolution (DPI): 96
+Available screens: 1
+Available disk space: 721 GB
+Default font: family=Dialog,name=Dialog,style=plain,size=12
+
+Java version: 	1.8.0_112 64-bit
+Java home: 	C:/Xilinx/Vivado/2018.1/tps/win64/jre
+Java executable location: 	C:/Xilinx/Vivado/2018.1/tps/win64/jre/bin/java.exe
+Java initial memory (-Xms): 	128 MB
+Java maximum memory (-Xmx):	 2 GB
+
+
+User name: 	jfw1702
+User home directory: C:/Users/jfw1702
+User working directory: C:/devspace/school/Micronaut/jw_display_code
+User country: 	US
+User language: 	en
+User locale: 	en_US
+
+RDI_BASEROOT: C:/Xilinx/Vivado
+HDI_APPROOT: C:/Xilinx/Vivado/2018.1
+RDI_DATADIR: C:/Xilinx/Vivado/2018.1/data
+RDI_BINDIR: C:/Xilinx/Vivado/2018.1/bin
+
+Vivado preferences file location: C:/Users/jfw1702/AppData/Roaming/Xilinx/Vivado/2018.1/vivado.xml
+Vivado preferences directory: C:/Users/jfw1702/AppData/Roaming/Xilinx/Vivado/2018.1/
+Vivado layouts directory: C:/Users/jfw1702/AppData/Roaming/Xilinx/Vivado/2018.1/layouts
+PlanAhead jar file location: 	C:/Xilinx/Vivado/2018.1/lib/classes/planAhead.jar
+Vivado log file location: 	C:/devspace/school/Micronaut/jw_display_code/vivado.log
+Vivado journal file location: 	C:/devspace/school/Micronaut/jw_display_code/vivado.jou
+Engine tmp dir: 	C:/devspace/school/Micronaut/jw_display_code/.Xil/Vivado-5484-JFW1702-WS
+
+GUI allocated memory:	183 MB
+GUI max memory:		3,052 MB
+Engine allocated memory: 519 MB
+
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: start_gui 
+// TclEventType: PROJECT_OPEN_DIALOG
+// bv (ch):  Open Project : addNotify
+// Opening Vivado Project: C:\devspace\school\Micronaut\jw_display_code\zedboard.xpr. Version: Vivado v2018.1 
+// [GUI Memory]: 60 MB (+60700kb) [00:00:10]
+// [Engine Memory]: 503 MB (+375572kb) [00:00:10]
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// Tcl Message: open_project C:/devspace/school/Micronaut/jw_display_code/zedboard.xpr 
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_CURRENT
+// HMemoryUtils.trashcanNow. Engine heap size: 533 MB. GUI used memory: 37 MB. Current time: 4/28/18 5:42:14 PM EDT
+// [Engine Memory]: 537 MB (+10030kb) [00:00:15]
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: PROJECT_NEW
+// [Engine Memory]: 623 MB (+62015kb) [00:00:16]
+// [GUI Memory]: 66 MB (+2609kb) [00:00:18]
+// Tcl Message: open_project C:/devspace/school/Micronaut/jw_display_code/zedboard.xpr 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.1/data/ip'. 
+// Project name: zedboard; location: C:/devspace/school/Micronaut/jw_display_code; part: xc7z020clg484-1
+// Tcl Message: open_project: Time (s): cpu = 00:00:17 ; elapsed = 00:00:11 . Memory (MB): peak = 812.793 ; gain = 95.984 
+dismissDialog("Open Project"); // bv (ch)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// Tcl Message: update_compile_order -fileset sources_1 
+// Elapsed time: 26 seconds
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, main (main.v)]", 1); // B (D, ch)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, main (main.v), mem : Memory (Memory.v)]", 4, true); // B (D, ch) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, main (main.v), mem : Memory (Memory.v)]", 4, true, false, false, false, false, true); // B (D, ch) - Double Click - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, main (main.v), mem : Memory (Memory.v), frame1 : frameMem (frameMem.v)]", 5, false); // B (D, ch)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, main (main.v), mem : Memory (Memory.v), frame1 : frameMem (frameMem.v)]", 5, false, false, false, false, false, true); // B (D, ch) - Double Click
+// [GUI Memory]: 75 MB (+5959kb) [00:00:52]
+// Elapsed time: 14 seconds
+selectCodeEditor("frameMem.v", 213, 146); // cd (w, ch)
+selectCodeEditor("frameMem.v", 213, 146, false, false, false, false, true); // cd (w, ch) - Double Click
+selectCodeEditor("frameMem.v", 221, 156); // cd (w, ch)
+selectCodeEditor("frameMem.v", 221, 156, false, false, false, false, true); // cd (w, ch) - Double Click
+// [GUI Memory]: 81 MB (+2408kb) [00:02:11]
+// Elapsed time: 162 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Memory.v", 1); // k (j, ch)
+// [GUI Memory]: 86 MB (+776kb) [00:04:05]
+// Elapsed time: 87 seconds
+selectCodeEditor("Memory.v", 234, 365); // cd (w, ch)
+typeControlKey((HResource) null, "Memory.v", 'c'); // cd (w, ch)
+selectCodeEditor("Memory.v", 209, 382); // cd (w, ch)
+typeControlKey((HResource) null, "Memory.v", 'v'); // cd (w, ch)
+selectCodeEditor("Memory.v", 236, 333); // cd (w, ch)
+typeControlKey((HResource) null, "Memory.v", 'c'); // cd (w, ch)
+selectCodeEditor("Memory.v", 189, 381); // cd (w, ch)
+typeControlKey((HResource) null, "Memory.v", 'v'); // cd (w, ch)
+// Elapsed time: 10 seconds
+selectCodeEditor("Memory.v", 48, 422); // cd (w, ch)
+selectCodeEditor("Memory.v", 49, 422, false, false, false, false, true); // cd (w, ch) - Double Click
+// [GUI Memory]: 92 MB (+1700kb) [00:07:49]
+// Elapsed time: 167 seconds
+selectCodeEditor("Memory.v", 144, 400); // cd (w, ch)
+selectCodeEditor("Memory.v", 244, 398); // cd (w, ch)
+selectCodeEditor("Memory.v", 236, 411); // cd (w, ch)
+// Elapsed time: 43 seconds
+selectCodeEditor("Memory.v", 215, 410); // cd (w, ch)
+// Elapsed time: 17 seconds
+selectCodeEditor("Memory.v", 228, 418); // cd (w, ch)
+typeControlKey((HResource) null, "Memory.v", 'c'); // cd (w, ch)
+typeControlKey((HResource) null, "Memory.v", 'v'); // cd (w, ch)
+// Elapsed time: 126 seconds
+typeControlKey((HResource) null, "Memory.v", 'c'); // cd (w, ch)
+// Elapsed time: 16 seconds
+typeControlKey((HResource) null, "Memory.v", 'v'); // cd (w, ch)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sources_1 
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed time: 79 seconds
+selectCodeEditor("Memory.v", 196, 386); // cd (w, ch)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sources_1 
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// [GUI Memory]: 98 MB (+1494kb) [00:14:04]
+// Elapsed time: 40 seconds
+selectCodeEditor("Memory.v", 131, 435); // cd (w, ch)
+selectCodeEditor("Memory.v", 124, 419); // cd (w, ch)
+// Elapsed time: 216 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "frameMem.v", 2); // k (j, ch)
+selectCodeEditor("frameMem.v", 271, 158); // cd (w, ch)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Memory.v", 1); // k (j, ch)
+selectCodeEditor("Memory.v", 184, 384); // cd (w, ch)
+typeControlKey((HResource) null, "Memory.v", 'c'); // cd (w, ch)
+selectCodeEditor("Memory.v", 204, 382); // cd (w, ch)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "frameMem.v", 2); // k (j, ch)
+selectCodeEditor("frameMem.v", 214, 251); // cd (w, ch)
+// HMemoryUtils.trashcanNow. Engine heap size: 653 MB. GUI used memory: 45 MB. Current time: 4/28/18 6:00:09 PM EDT
+// Elapsed time: 20 seconds
+typeControlKey((HResource) null, "frameMem.v", 'v'); // cd (w, ch)
+selectCodeEditor("frameMem.v", 220, 302); // cd (w, ch)
+selectCodeEditor("frameMem.v", 237, 297); // cd (w, ch)
+// Elapsed time: 252 seconds
+selectCodeEditor("frameMem.v", 155, 74); // cd (w, ch)
+selectCodeEditor("frameMem.v", 260, 124); // cd (w, ch)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED

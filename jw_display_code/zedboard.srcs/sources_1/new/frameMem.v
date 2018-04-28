@@ -34,7 +34,10 @@ module frameMem(
         output [31:0] pixBlockRow1,
         output [31:0] pixBlockRow2,
         output [31:0] pixBlockRow3,
-        output [7:0] pixelOut
+        output [7:0] pixelOut,
+        input   [12:0] writeBlockAddress,
+        input  [127:0] pixelBlockIn,
+        input          writeEn
         );
     
     reg [7:0] memFile [76799:0]; //byte addressable and 320x240 big
