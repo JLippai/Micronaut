@@ -30,15 +30,22 @@
 module frameMem(
         input [12:0] readBlockAddress,
         input [16:0] readByteAddress,
-        output [31:0] pixBlockRow0,
-        output [31:0] pixBlockRow1,
-        output [31:0] pixBlockRow2,
-        output [31:0] pixBlockRow3,
+        output [127:0] pixBlock,
         output [7:0] pixelOut,
         input   [12:0] writeBlockAddress,
         input  [127:0] pixelBlockIn,
         input          writeEn
         );
+    
+    wire [31:0] pixBlockRow0;
+    wire [31:0] pixBlockRow1;
+    wire [31:0] pixBlockRow2;
+    wire [31:0] pixBlockRow3;
+    
+    assign pixBlock[127:96] = pixBlockRow0;
+    assign pixBlock [95:64] = pixBlockRow1;
+    assign pixBlock [63:32] = pixBlockRow2;
+    assign pixBlock [31: 0] = pixBlockRow3;
     
     reg [7:0] memFile [76799:0]; //byte addressable and 320x240 big
     initial
@@ -73,55 +80,32 @@ module frameMem(
     assign pixBlockRow1[((1)*8-1):((0)*8)] = memFile[readBlockAddress*16+`ONE_ROW+`THREE_COLS];
     assign pixBlockRow2[((1)*8-1):((0)*8)] = memFile[readBlockAddress*16+`TWO_ROWS+`THREE_COLS];
     assign pixBlockRow3[((1)*8-1):((0)*8)] = memFile[readBlockAddress*16+`THREE_ROWS+`THREE_COLS];
-
-
-
-//    reg [2:0] count;
-       
-//    always@(*)
-//    //loading up the output blocks with the correct addresses from the memFile
-//    //check these reads to ensure I'm not addressing backwards (little endian/big endian screwery)
-//    begin
-////        byteOut = memFile[readByteAddress];
-////        if(count<3'd4)
-////        begin
-////            if(count==0)    //First column of pixels
-////            begin   //filling in [31:24]
-//                pixBlockRow0[((4)*8-1):((3)*8)] = memFile[readBlockAddress*16];    
-//                pixBlockRow1[((4)*8-1):((3)*8)] = memFile[(readBlockAddress*16+`ONE_ROW)];
-//                pixBlockRow2[((4)*8-1):((3)*8)] = memFile[(readBlockAddress*16+`TWO_ROWS)];
-//                pixBlockRow3[((4)*8-1):((3)*8)] = memFile[(readBlockAddress*16+`THREE_ROWS)];
-////            end
-            
-////            else if(count==1)   //Second column of pixels
-////            begin   //filling in [23:16]
-//                pixBlockRow0[((3)*8-1):((2)*8)] = memFile[(readBlockAddress)*16+`ONE_COL];
-//                pixBlockRow1[((3)*8-1):((2)*8)] = memFile[((readBlockAddress)*16+`ONE_ROW+`ONE_COL)];
-//                pixBlockRow2[((3)*8-1):((2)*8)] = memFile[(readBlockAddress*16+`TWO_ROWS+`ONE_COL)];
-//                pixBlockRow3[((3)*8-1):((2)*8)] = memFile[(readBlockAddress*16+`THREE_ROWS+`ONE_COL)];
-////            end
-            
-////            else if(count==2)   //Third column of pixels
-////            begin   //filling in [15:8]
-//                pixBlockRow0[((2)*8-1):((1)*8)] = memFile[readBlockAddress*16+`TWO_COLS];
-//                pixBlockRow1[((2)*8-1):((1)*8)] = memFile[readBlockAddress*16+`ONE_ROW+`TWO_COLS];
-//                pixBlockRow2[((2)*8-1):((1)*8)] = memFile[readBlockAddress*16+`TWO_ROWS+`TWO_COLS];
-//                pixBlockRow3[((2)*8-1):((1)*8)] = memFile[readBlockAddress*16+`THREE_ROWS+`TWO_COLS];
-////            end
-                        
-////            else if(count==3)   //Fourth column of pixels
-////            begin   //filling in [7:0]
-//                pixBlockRow0[((1)*8-1):((0)*8)] = memFile[readBlockAddress*16+`THREE_COLS];
-//                pixBlockRow1[((1)*8-1):((0)*8)] = memFile[readBlockAddress*16+`ONE_ROW+`THREE_COLS];
-//                pixBlockRow2[((1)*8-1):((0)*8)] = memFile[readBlockAddress*16+`TWO_ROWS+`THREE_COLS];
-//                pixBlockRow3[((1)*8-1):((0)*8)] = memFile[readBlockAddress*16+`THREE_ROWS+`THREE_COLS];
-//            end            
-//            count = count+1;        
-//        end
-//        else
-//        begin
-//            count = 0;
-//        end
-//    end 
+    
+    always @ (posedge writeEn) begin
+        // row 1
+        memFile[writeBlockAddress*16] <= pixelBlockIn[127:120];
+        memFile[writeBlockAddress*16 + `ONE_COL] <= pixelBlockIn[119:112];
+        memFile[writeBlockAddress*16 + `TWO_COLS]  <= pixelBlockIn[111:104];
+        memFile[writeBlockAddress*16 + `THREE_COLS] <= pixelBlockIn[103:96];
+        
+        // row 2
+        memFile[writeBlockAddress*16 + `ONE_ROW ] <= pixelBlockIn[95:88];
+        memFile[writeBlockAddress*16 + `ONE_ROW + `ONE_COL] <= pixelBlockIn[87:80];
+        memFile[writeBlockAddress*16 + `ONE_ROW + `TWO_COLS]  <= pixelBlockIn[79:72];
+        memFile[writeBlockAddress*16 + `ONE_ROW + `THREE_COLS] <= pixelBlockIn[71:64];
+        
+        // row 3
+        memFile[writeBlockAddress*16 + `TWO_ROWS] <= pixelBlockIn[63:56];
+        memFile[writeBlockAddress*16 + `TWO_ROWS + `ONE_COL] <= pixelBlockIn[55:48];
+        memFile[writeBlockAddress*16 + `TWO_ROWS + `TWO_COLS]  <= pixelBlockIn[47:40];
+        memFile[writeBlockAddress*16 + `TWO_ROWS + `THREE_COLS] <= pixelBlockIn[39:32];
+        
+        // row 4
+        memFile[writeBlockAddress*16 + `THREE_ROWS] <= pixelBlockIn[31:24];
+        memFile[writeBlockAddress*16 + `THREE_ROWS + `ONE_COL] <= pixelBlockIn[23:16];
+        memFile[writeBlockAddress*16 + `THREE_ROWS + `TWO_COLS]  <= pixelBlockIn[15:8];
+        memFile[writeBlockAddress*16 + `THREE_ROWS + `THREE_COLS] <= pixelBlockIn[7:0];
+             
+    end
     
 endmodule

@@ -31,6 +31,78 @@ module Memory(
     input          writeEn
     );
     
-    frameMem frame1(readBlockAddress, readByteAddress, pixelBlockOut[127:96], pixelBlockOut[95:64], pixelBlockOut[63:32], pixelBlockOut[31:0], pixelOut);
+    wire frame0PixelBlock;
+    wire frame0Pixel;
+    wire frame1PixelBlock;
+    wire frame1Pixel;
+    wire frame2PixelBlock;
+    wire frame2Pixel;
+    wire refFramePixelBlock;
+    wire refFramePixel;
+    wire outFramePixelBlock;
+    wire outFramePixel;
+    
+    frameMem frame0(
+        .readBlockAddress(readBlockAddress),
+        .readByteAddress(readByteAddress),
+        .pixBlock(frame0PixelBlock),
+        .pixelOut(frame0Pixel),
+        .writeBlockAddress(),
+        .pixelBlockIn(),
+        .writeEn()
+        );
+        
+    frameMem frame1(
+            .readBlockAddress(readBlockAddress),
+            .readByteAddress(readByteAddress),
+            .pixBlock(frame1PixelBlock),
+            .pixelOut(frame1Pixel),
+            .writeBlockAddress(),
+            .pixelBlockIn(),
+            .writeEn()
+            );
+            
+    frameMem frame2(
+            .readBlockAddress(readBlockAddress),
+            .readByteAddress(readByteAddress),
+            .pixBlock(frame2PixelBlock),
+            .pixelOut(frame2Pixel),
+            .writeBlockAddress(),
+            .pixelBlockIn(),
+            .writeEn()
+            );
+            
+    frameMem refFrame(
+            .readBlockAddress(readBlockAddress),
+            .readByteAddress(readByteAddress),
+            .pixBlock(refFramePixelBlock),
+            .pixelOut(refFramePixel),
+            .writeBlockAddress(),
+            .pixelBlockIn(),
+            .writeEn()
+            );
+            
+    frameMem outFrame(
+            .readBlockAddress(readBlockAddress),
+            .readByteAddress(readByteAddress),
+            .pixBlock(outFramePixelBlock),
+            .pixelOut(outFramePixel),
+            .writeBlockAddress(writeBlockAddress),
+            .pixelBlockIn(pixelBlockIn),
+            .writeEn(writeEn)
+            );
+    
+    assign pixelBlockOut = (frameSelBlock == 0) ? frame0PixelBlock :
+                           ((frameSelBlock == 1) ? frame1PixelBlock :
+                           ((frameSelBlock == 2) ? frame2PixelBlock :
+                           ((frameSelBlock == 3) ? refFramePixelBlock :
+                           ((frameSelBlock == 4) ? outFramePixelBlock : refFramePixelBlock))));
+                           
+    assign pixelOut = (frameSelByte == 0) ? frame0Pixel :
+                      ((frameSelByte == 1) ? frame1Pixel :
+                      ((frameSelByte == 2) ? frame2Pixel :
+                      ((frameSelByte == 3) ? refFramePixel :
+                      ((frameSelByte == 4) ? outFramePixel : refFramePixel))));
+    
     
 endmodule
