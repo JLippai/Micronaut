@@ -54,17 +54,47 @@ module Memory(
 //        .pixelBlockIn(0),
 //        .writeEn(0)
 //        );
+      
+      blk_mem_gen_0 frame0 (
+        .clka(clk),
+        .ena(1),
+        .wea(0),
+        .addra(readBlockAddress),
+        .dina(0),
+        .douta(frame0PixelBlock),
+        .clkb(clk),
+        .enb(1),
+        .web(0),
+        .addrb(readByteAddress),
+        .dinb(0),
+        .doutb(frame0Pixel)
+      ); 
         
-    frameRam #(.INIT_FILE("redcrossing2.list")) frame (
-//    frameRam frame (
-        .clk(clk),
-        .we(0),
-        .a(readBlockAddress),
-        .dpra(readByteAddress),
-        .di(0),
-        .spo(pixelBlockOut),
-        .dpo(pixelOut)
-        );
+      blk_mem_gen_1 frame1 (
+        .clka(clk),
+        .ena(1),
+        .wea(0),
+        .addra(readBlockAddress),
+        .dina(0),
+        .douta(frame1PixelBlock),
+        .clkb(clk),
+        .enb(1),
+        .web(0),
+        .addrb(readByteAddress),
+        .dinb(0),
+        .doutb(frame1Pixel)
+      );  
+        
+//    frameRam #(.INIT_FILE("redcrossing2.list")) frame (
+////    frameRam frame (
+//        .clk(clk),
+//        .we(0),
+//        .a(readBlockAddress),
+//        .dpra(readByteAddress),
+//        .di(0),
+//        .spo(pixelBlockOut),
+//        .dpo(pixelOut)
+//        );
         
 //    frameMem #("bluenocrossing.list") frame1(
 //            .readBlockAddress(readBlockAddress),
@@ -106,17 +136,17 @@ module Memory(
 //            .writeEn(writeEn)
 //            );
     
-//    assign pixelBlockOut = (frameSelBlock == 0) ? frame0PixelBlock :
-//                           ((frameSelBlock == 1) ? frame1PixelBlock :
-//                           ((frameSelBlock == 2) ? frame2PixelBlock :
-//                           ((frameSelBlock == 3) ? refFramePixelBlock :
-//                           ((frameSelBlock == 4) ? outFramePixelBlock : refFramePixelBlock))));
+    assign pixelBlockOut = (frameSelBlock == 0) ? frame0PixelBlock :
+                           ((frameSelBlock == 1) ? frame1PixelBlock :
+                           ((frameSelBlock == 2) ? frame2PixelBlock :
+                           ((frameSelBlock == 3) ? refFramePixelBlock :
+                           ((frameSelBlock == 4) ? outFramePixelBlock : refFramePixelBlock))));
                            
-//    assign pixelOut = (frameSelByte == 0) ? frame0Pixel :
-//                      ((frameSelByte == 1) ? frame1Pixel :
-//                      ((frameSelByte == 2) ? frame2Pixel :
-//                      ((frameSelByte == 3) ? refFramePixel :
-//                      ((frameSelByte == 4) ? outFramePixel : refFramePixel))));
+    assign pixelOut = (frameSelByte == 0) ? frame0Pixel :
+                      ((frameSelByte == 1) ? frame1Pixel :
+                      ((frameSelByte == 2) ? frame2Pixel :
+                      ((frameSelByte == 3) ? refFramePixel :
+                      ((frameSelByte == 4) ? outFramePixel : refFramePixel))));
     
     
 endmodule

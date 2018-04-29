@@ -30,6 +30,7 @@ module display_test(
     reg [11:0] pixelRow;
     wire  [16:0] frPixAddress;
     wire  [16:0] logoPixAddress;
+    reg  [127:0] logoPixel;
     reg vid_en;
     reg [15:0] goodDrops;
     reg [15:0] badDrops;
@@ -47,6 +48,7 @@ module display_test(
         .badDrops(badDrops),
         .logoPixAddress(logoPixAddress),
         .frPixAddress(frPixAddress),
+        .logoPixel(logoPixel),
         .blue(blue),
         .green(green),
         .red(red)
@@ -61,6 +63,7 @@ module display_test(
         vid_en = 0;
         goodDrops = 0;
         badDrops = 0;
+        logoPixel = 128'h00112233445566778899aabbccddeeff;
         
         // Wait 100 ns for global reset to finish
         #100;

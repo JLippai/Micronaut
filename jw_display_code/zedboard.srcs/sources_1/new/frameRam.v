@@ -22,7 +22,7 @@
 
 module frameRam (clk, we, a, dpra, di, spo, dpo);
 
-    parameter DEPTH = 4800;
+    parameter DEPTH = 13;  // enough bits to store 4800
     parameter WIDTH = 128;
     parameter INIT_FILE = "logo_Cidar_Color320_240.list";
 

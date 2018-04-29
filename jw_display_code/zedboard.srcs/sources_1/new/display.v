@@ -21,21 +21,20 @@
 
 
 module display(
-        input  wire        clk,
-        input  wire        rst,
-        input  wire [11:0] pixelCol,
-        input  wire [11:0] pixelRow,
-        input  wire        vid_en,
-        input  wire [15:0] goodDrops,
-        input  wire [15:0] badDrops,
-        input  wire [15:0] uglyDrops,
-        input  wire  [7:0] frPixel,
-        input  wire  [127:0] logoPixel,
-        output reg  [16:0] frPixAddress,
-        output reg  [16:0] logoPixAddress,
-        output wire  [3:0] blue,
-        output wire  [3:0] green,
-        output wire  [3:0] red
+        input  wire         clk,
+        input  wire         rst,
+        input  wire  [11:0] pixelCol,
+        input  wire [ 11:0] pixelRow,
+        input  wire         vid_en,
+        input  wire [ 15:0] goodDrops,
+        input  wire [ 15:0] badDrops,
+        input  wire [ 15:0] uglyDrops,
+        input  wire [127:0] pixelBlock,
+        output reg  [  2:0] frameSel,
+        output reg  [ 16:0] pixelAddress,
+        output wire [  3:0] blue,
+        output wire [  3:0] green,
+        output wire [  3:0] red
     );
     
     parameter FONT_WIDTH = 32;
@@ -80,34 +79,31 @@ module display(
         // Video Frame from camera
         if (pixelRow >=VID_Y_POS && pixelRow < (VID_Y_POS + FRAME_HEIGHT) &&
             pixelCol >= VID_X_POS && pixelCol < (VID_X_POS + FRAME_WIDTH)) begin
+            frameSel <= 3'd0;
             vidFrameEn <= 1'b1;
-            frPixAddress <= (pixelCol - LOGO_X_POS) + ((pixelRow - LOGO_Y_POS) * FRAME_WIDTH);
-            pixelBlue <= frPixel[1:0] << 2;  // Scale by 4 to convert 2 bit to 4 bit color
-            pixelGreen <= frPixel[4:2] << 1; // Scale by 2 to convert 3 bit to 4 bit color
-            pixelRed <= frPixel[7:5] << 1;   // Scale by 2 to convert 3 bit to 4 bit color
+            pixelAddress <= (pixelCol - LOGO_X_POS) + ((pixelRow - LOGO_Y_POS) * FRAME_WIDTH) / 16;
+            pixel_ctr <= ((pixelCol - LOGO_X_POS) + ((pixelRow - LOGO_Y_POS) * FRAME_WIDTH)) % 16;
+            pixelBlue <= pixelBlock[(((15-pixel_ctr) * 8) + 1) -: 2] << 2;  // Scale by 4 to convert 2 bit to 4 bit color
+            pixelGreen <= pixelBlock[((15-pixel_ctr) * 8 + 4) -: 3] << 1; // Scale by 2 to convert 3 bit to 4 bit color
+            pixelRed <= pixelBlock[((15-pixel_ctr) * 8 + 7) -: 3] << 1;   // Scale by 2 to convert 3 bit to 4 bit color
         end else begin
             vidFrameEn <= 1'b0;
-            frPixAddress <= 17'd0;
+            pixelAddress <= 17'd0;
         end
         
         // CIDAR LOGO
         if (pixelRow >=LOGO_Y_POS && pixelRow < (LOGO_Y_POS + FRAME_HEIGHT) &&
             pixelCol >= LOGO_X_POS && pixelCol < (LOGO_X_POS + FRAME_WIDTH)) begin
+            frameSel <= 3'd1;
             logoEn <= 1'b1;
-            logoPixAddress <= ((pixelCol - LOGO_X_POS) + ((pixelRow - LOGO_Y_POS) * FRAME_WIDTH)) / 16;
+            pixelAddress <= ((pixelCol - LOGO_X_POS) + ((pixelRow - LOGO_Y_POS) * FRAME_WIDTH)) / 16;
             pixel_ctr <= ((pixelCol - LOGO_X_POS) + ((pixelRow - LOGO_Y_POS) * FRAME_WIDTH)) % 16;
-//            pixelBlue <= logoPixel[1:0] << 2;  // Scale by 4 to convert 2 bit to 4 bit color
-             pixelBlue <= logoPixel[pixel_ctr*2 +: 1] << 2;  // Scale by 4 to convert 2 bit to 4 bit color
-//            pixelBlue <= 4'hf; //logoPixel[(pixel_ctr * 8) +: 1] << 2;  // Scale by 4 to convert 2 bit to 4 bit color
-//            pixelGreen <= logoPixel[4:2] << 1; // Scale by 2 to convert 3 bit to 4 bit color
-            pixelGreen <= logoPixel[(pixel_ctr*2 + 2)+:2] << 1; // Scale by 2 to convert 3 bit to 4 bit color
-//            pixelGreen <= 4'hf; //logoPixel[(pixel_ctr * 8 + 2) +: 2] << 1; // Scale by 2 to convert 3 bit to 4 bit color
-//            pixelRed <= logoPixel[7:5] << 1;   // Scale by 2 to convert 3 bit to 4 bit color
-            pixelRed <= logoPixel[(pixel_ctr*2 + 5)+:2] << 1;   // Scale by 2 to convert 3 bit to 4 bit color
-//            pixelRed <= 4'hf; //logoPixel[(pixel_ctr * 8 + 5) +: 2] << 1;   // Scale by 2 to convert 3 bit to 4 bit color
+            pixelBlue <= pixelBlock[(((15-pixel_ctr) * 8) + 1) -: 2] << 2;  // Scale by 4 to convert 2 bit to 4 bit color
+            pixelGreen <= pixelBlock[((15-pixel_ctr) * 8 + 4) -: 3] << 1; // Scale by 2 to convert 3 bit to 4 bit color
+            pixelRed <= pixelBlock[((15-pixel_ctr) * 8 + 7) -: 3] << 1;   // Scale by 2 to convert 3 bit to 4 bit color
         end else begin
             logoEn <= 1'b0;
-            logoPixAddress <= 17'd0;
+            pixelAddress <= 17'd0;
         end
         
         // Test Area for Good and Bad droplet reporting

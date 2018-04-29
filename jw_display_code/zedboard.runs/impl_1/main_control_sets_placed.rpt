@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.1 (win64) Build 2188600 Wed Apr  4 18:40:38 MDT 2018
-| Date         : Sun Apr 29 01:12:21 2018
+| Date         : Sun Apr 29 17:40:33 2018
 | Host         : JFW1702-WS running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file main_control_sets_placed.rpt
 | Design       : main
@@ -34,13 +34,12 @@ Table of Contents
 +--------+--------------+
 | Fanout | Control Sets |
 +--------+--------------+
-|      1 |            2 |
+|      1 |            3 |
 |      2 |            1 |
-|      4 |            1 |
-|      5 |            1 |
 |     11 |            1 |
-|     13 |            1 |
-|    16+ |            4 |
+|     12 |            1 |
+|     13 |            2 |
+|    16+ |            3 |
 +--------+--------------+
 
 
@@ -50,10 +49,10 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              30 |           18 |
+| No           | No                    | No                     |              45 |           21 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |              39 |           12 |
-| Yes          | No                    | No                     |              43 |           14 |
+| No           | Yes                   | No                     |              40 |           14 |
+| Yes          | No                    | No                     |              43 |           15 |
 | Yes          | No                    | Yes                    |               0 |            0 |
 | Yes          | Yes                   | No                     |               2 |            2 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
@@ -65,17 +64,17 @@ Table of Contents
 +--------------------------------+----------------------------------+-------------------------------------------+------------------+----------------+
 |          Clock Signal          |           Enable Signal          |              Set/Reset Signal             | Slice Load Count | Bel Load Count |
 +--------------------------------+----------------------------------+-------------------------------------------+------------------+----------------+
+|  vga/vidFrameEn                |                                  | vga/logoEn                                |                1 |              1 |
 |  vga/clk_wiz_0_0/inst/clk_out1 | vga/hsync_outp                   | vga/hsync_outp0                           |                1 |              1 |
 |  vga/clk_wiz_0_0/inst/clk_out1 | vga/vsync_outp_i_1_n_0           | vga/reset_synchronizer_0/syncstages_ff[1] |                1 |              1 |
 |  vga/clk_wiz_0_0/inst/clk_out1 |                                  |                                           |                1 |              2 |
-|  vga/logoEn                    |                                  |                                           |                4 |              4 |
-|  vga/E[0]                      |                                  |                                           |                3 |              5 |
-|  vga/clk_wiz_0_0/inst/clk_out1 | vga/counter_line_sig[10]_i_1_n_0 |                                           |                5 |             11 |
-|  vga/clk_wiz_0_0/inst/clk_out1 |                                  | vga/reset_synchronizer_0/syncstages_ff[1] |                5 |             13 |
-|  vga/VGA_RED[1][0]             |                                  |                                           |                9 |             18 |
+|  vga/clk_wiz_0_0/inst/clk_out1 | vga/counter_line_sig[10]_i_1_n_0 |                                           |                6 |             11 |
+|  vga/VGA_BLU[2][0]             |                                  |                                           |                5 |             12 |
+|  GCLK_IBUF_BUFG                |                                  |                                           |                5 |             13 |
+|  vga/clk_wiz_0_0/inst/clk_out1 |                                  | vga/reset_synchronizer_0/syncstages_ff[1] |                6 |             13 |
+|  vga/E[0]                      |                                  |                                           |               10 |             18 |
 |  GCLK_IBUF_BUFG                |                                  | counter[26]_i_1_n_0                       |                7 |             26 |
 |  GCLK_IBUF_BUFG                | counter[26]_i_1_n_0              |                                           |                9 |             32 |
-|  GCLK_IBUF_BUFG                |                                  |                                           |               12 |             89 |
 +--------------------------------+----------------------------------+-------------------------------------------+------------------+----------------+
 
 

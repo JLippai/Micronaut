@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.1 (win64) Build 2188600 Wed Apr  4 18:40:38 MDT 2018
-| Date         : Sun Apr 29 01:12:51 2018
+| Date         : Sun Apr 29 17:41:05 2018
 | Host         : JFW1702-WS running 64-bit major release  (build 9200)
 | Command      : report_drc -file main_drc_routed.rpt -pb main_drc_routed.pb -rpx main_drc_routed.rpx
 | Design       : main
@@ -38,27 +38,27 @@ Table of Contents
 -----------------
 DPIP-1#1 Warning
 Input pipelining  
-DSP disp/logoPixAddress2 input disp/logoPixAddress2/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP disp/pixelAddress2 input disp/pixelAddress2/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPOP-1#1 Warning
 PREG Output pipelining  
-DSP disp/logoPixAddress1 output disp/logoPixAddress1/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+DSP disp/pixelAddress1 output disp/pixelAddress1/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
 Related violations: <none>
 
 PDRC-153#1 Warning
 Gated clock check  
-Net vga/E[0] is a gated clock net sourced by a combinational pin vga/pixelBlue_reg[2]_i_2/O, cell vga/pixelBlue_reg[2]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net vga/E[0] is a gated clock net sourced by a combinational pin vga/char_sel_reg[4]_i_2/O, cell vga/char_sel_reg[4]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#2 Warning
 Gated clock check  
-Net vga/VGA_RED[1][0] is a gated clock net sourced by a combinational pin vga/char_sel_reg[4]_i_2/O, cell vga/char_sel_reg[4]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net vga/VGA_BLU[2][0] is a gated clock net sourced by a combinational pin vga/pixelBlue_reg[3]_i_2/O, cell vga/pixelBlue_reg[3]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#3 Warning
 Gated clock check  
-Net vga/logoEn is a gated clock net sourced by a combinational pin vga/pixel_ctr_reg[3]_i_2/O, cell vga/pixel_ctr_reg[3]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net vga/vidFrameEn is a gated clock net sourced by a combinational pin vga/frameSel_reg[0]_i_1/O, cell vga/frameSel_reg[0]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 ZPS7-1#1 Warning

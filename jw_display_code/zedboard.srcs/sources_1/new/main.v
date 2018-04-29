@@ -48,6 +48,8 @@ module main(
     wire [ 16:0] readByteAddress;
     wire [127:0] pixelBlockOut;
     wire [127:0] pixelOut;
+    wire [  2:0] frameSelBlock;
+    wire [  2:0] frameSelByte;
     
     VGA_timing_controller vga(
         .clk_100MHz_inp(GCLK),
@@ -68,8 +70,9 @@ module main(
         .goodDrops(goodDrops),
         .badDrops(badDrops),
         .uglyDrops(uglyDrops),
-        .logoPixel(pixelOut),
-        .logoPixAddress(readByteAddress),
+        .pixelBlock(pixelOut),
+        .frameSel(frameSelByte),
+        .pixelAddress(readByteAddress),
         .blue(VGA_BLU),
         .green(VGA_GRN),
         .red(VGA_RED)
@@ -80,7 +83,8 @@ module main(
         .readBlockAddress(readBlockAddress),
         .readByteAddress(readByteAddress),
         .pixelBlockOut(pixelBlockOut),
-        .pixelOut(pixelOut)
+        .pixelOut(pixelOut),
+        .frameSelByte(frameSelByte)
     );
     
     // Clock Divider Counter

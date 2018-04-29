@@ -74,9 +74,11 @@ set rc [catch {
   set_property parent.project_path C:/devspace/school/Micronaut/jw_display_code/zedboard.xpr [current_project]
   set_property ip_output_repo C:/devspace/school/Micronaut/jw_display_code/zedboard.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
-  set_property XPM_LIBRARIES XPM_CDC [current_project]
+  set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
   add_files -quiet C:/devspace/school/Micronaut/jw_display_code/zedboard.runs/synth_1/main.dcp
   read_ip -quiet C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
+  read_ip -quiet c:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci
+  read_ip -quiet c:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/ip/blk_mem_gen_1/blk_mem_gen_1.xci
   read_xdc C:/devspace/school/Micronaut/jw_display_code/zedboard_master_constraints.xdc
   link_design -top main -part xc7z020clg484-1
   close_msg_db -file init_design.pb
@@ -157,7 +159,7 @@ start_step write_bitstream
 set ACTIVE_STEP write_bitstream
 set rc [catch {
   create_msg_db write_bitstream.pb
-  set_property XPM_LIBRARIES XPM_CDC [current_project]
+  set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
   catch { write_mem_info -force main.mmi }
   write_bitstream -force main.bit 
   catch {write_debug_probes -quiet -force main}
