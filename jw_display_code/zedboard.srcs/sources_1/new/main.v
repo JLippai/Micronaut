@@ -47,7 +47,7 @@ module main(
     wire [ 12:0] readBlockAddress;
     wire [ 16:0] readByteAddress;
     wire [127:0] pixelBlockOut;
-    wire [  7:0] pixelOut;
+    wire [127:0] pixelOut;
     
     VGA_timing_controller vga(
         .clk_100MHz_inp(GCLK),
@@ -76,6 +76,7 @@ module main(
     );
     
     Memory mem(
+        .clk(GCLK),
         .readBlockAddress(readBlockAddress),
         .readByteAddress(readByteAddress),
         .pixelBlockOut(pixelBlockOut),

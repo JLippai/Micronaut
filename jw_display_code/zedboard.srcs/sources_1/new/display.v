@@ -30,7 +30,7 @@ module display(
         input  wire [15:0] badDrops,
         input  wire [15:0] uglyDrops,
         input  wire  [7:0] frPixel,
-        input  wire  [7:0] logoPixel,
+        input  wire  [127:0] logoPixel,
         output reg  [16:0] frPixAddress,
         output reg  [16:0] logoPixAddress,
         output wire  [3:0] blue,
@@ -53,6 +53,8 @@ module display(
     reg [3:0] pixelBlue;
     reg [3:0] pixelGreen;
     reg [3:0] pixelRed;
+    
+    reg [7:0] pixel_ctr;
     
     // Counter Text Area Variables
     reg [5:0] text_grid;
@@ -92,10 +94,17 @@ module display(
         if (pixelRow >=LOGO_Y_POS && pixelRow < (LOGO_Y_POS + FRAME_HEIGHT) &&
             pixelCol >= LOGO_X_POS && pixelCol < (LOGO_X_POS + FRAME_WIDTH)) begin
             logoEn <= 1'b1;
-            logoPixAddress <= (pixelCol - LOGO_X_POS) + ((pixelRow - LOGO_Y_POS) * FRAME_WIDTH);
-            pixelBlue <= logoPixel[1:0] << 2;  // Scale by 4 to convert 2 bit to 4 bit color
-            pixelGreen <= logoPixel[4:2] << 1; // Scale by 2 to convert 3 bit to 4 bit color
-            pixelRed <= logoPixel[7:5] << 1;   // Scale by 2 to convert 3 bit to 4 bit color
+            logoPixAddress <= ((pixelCol - LOGO_X_POS) + ((pixelRow - LOGO_Y_POS) * FRAME_WIDTH)) / 16;
+            pixel_ctr <= ((pixelCol - LOGO_X_POS) + ((pixelRow - LOGO_Y_POS) * FRAME_WIDTH)) % 16;
+//            pixelBlue <= logoPixel[1:0] << 2;  // Scale by 4 to convert 2 bit to 4 bit color
+             pixelBlue <= logoPixel[pixel_ctr*2 +: 1] << 2;  // Scale by 4 to convert 2 bit to 4 bit color
+//            pixelBlue <= 4'hf; //logoPixel[(pixel_ctr * 8) +: 1] << 2;  // Scale by 4 to convert 2 bit to 4 bit color
+//            pixelGreen <= logoPixel[4:2] << 1; // Scale by 2 to convert 3 bit to 4 bit color
+            pixelGreen <= logoPixel[(pixel_ctr*2 + 2)+:2] << 1; // Scale by 2 to convert 3 bit to 4 bit color
+//            pixelGreen <= 4'hf; //logoPixel[(pixel_ctr * 8 + 2) +: 2] << 1; // Scale by 2 to convert 3 bit to 4 bit color
+//            pixelRed <= logoPixel[7:5] << 1;   // Scale by 2 to convert 3 bit to 4 bit color
+            pixelRed <= logoPixel[(pixel_ctr*2 + 5)+:2] << 1;   // Scale by 2 to convert 3 bit to 4 bit color
+//            pixelRed <= 4'hf; //logoPixel[(pixel_ctr * 8 + 5) +: 2] << 1;   // Scale by 2 to convert 3 bit to 4 bit color
         end else begin
             logoEn <= 1'b0;
             logoPixAddress <= 17'd0;

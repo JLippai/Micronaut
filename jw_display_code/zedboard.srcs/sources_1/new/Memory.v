@@ -20,89 +20,103 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 module Memory(
+    input          clk,
     input    [2:0] frameSelBlock,
     input   [12:0] readBlockAddress,
     input    [2:0] frameSelByte,
     input   [16:0] readByteAddress,
     output [127:0] pixelBlockOut,
-    output   [7:0] pixelOut,
+//    output   [7:0] pixelOut,
+    output [127:0] pixelOut,
     input   [12:0] writeBlockAddress,
     input  [127:0] pixelBlockIn,
     input          writeEn
     );
     
-    wire frame0PixelBlock;
-    wire frame0Pixel;
-    wire frame1PixelBlock;
-    wire frame1Pixel;
-    wire frame2PixelBlock;
-    wire frame2Pixel;
-    wire refFramePixelBlock;
-    wire refFramePixel;
-    wire outFramePixelBlock;
-    wire outFramePixel;
+    wire [127:0] frame0PixelBlock;
+    wire [127:0] frame0Pixel;
+    wire [127:0] frame1PixelBlock;
+    wire [127:0] frame1Pixel;
+    wire [127:0] frame2PixelBlock;
+    wire [127:0] frame2Pixel;
+    wire [127:0] refFramePixelBlock;
+    wire [127:0] refFramePixel;
+    wire [127:0] outFramePixelBlock;
+    wire [127:0] outFramePixel;
     
-    frameMem frame0(
-        .readBlockAddress(readBlockAddress),
-        .readByteAddress(readByteAddress),
-        .pixBlock(frame0PixelBlock),
-        .pixelOut(frame0Pixel),
-        .writeBlockAddress(),
-        .pixelBlockIn(),
-        .writeEn()
+//    frameMem #("redcrossing.list") frame0 (
+//    //frameMem frame0 (
+//        .clk(clk),
+//        .blockAddress(readBlockAddress),
+//        .readByteAddress(readByteAddress),
+//        .pixBlock(frame0PixelBlock),
+//        .pixelOut(frame0Pixel),
+//        .pixelBlockIn(0),
+//        .writeEn(0)
+//        );
+        
+    frameRam #(.INIT_FILE("redcrossing2.list")) frame (
+//    frameRam frame (
+        .clk(clk),
+        .we(0),
+        .a(readBlockAddress),
+        .dpra(readByteAddress),
+        .di(0),
+        .spo(pixelBlockOut),
+        .dpo(pixelOut)
         );
         
-    frameMem frame1(
-            .readBlockAddress(readBlockAddress),
-            .readByteAddress(readByteAddress),
-            .pixBlock(frame1PixelBlock),
-            .pixelOut(frame1Pixel),
-            .writeBlockAddress(),
-            .pixelBlockIn(),
-            .writeEn()
-            );
+//    frameMem #("bluenocrossing.list") frame1(
+//            .readBlockAddress(readBlockAddress),
+//            .readByteAddress(readByteAddress),
+//            .pixBlock(frame1PixelBlock),
+//            .pixelOut(frame1Pixel),
+//            .writeBlockAddress(),
+//            .pixelBlockIn(),
+//            .writeEn()
+//            );
             
-    frameMem frame2(
-            .readBlockAddress(readBlockAddress),
-            .readByteAddress(readByteAddress),
-            .pixBlock(frame2PixelBlock),
-            .pixelOut(frame2Pixel),
-            .writeBlockAddress(),
-            .pixelBlockIn(),
-            .writeEn()
-            );
+//    frameMem  #("bluecrossing.list") frame2(
+//            .readBlockAddress(readBlockAddress),
+//            .readByteAddress(readByteAddress),
+//            .pixBlock(frame2PixelBlock),
+//            .pixelOut(frame2Pixel),
+//            .writeBlockAddress(),
+//            .pixelBlockIn(),
+//            .writeEn()
+//            );
             
-    frameMem refFrame(
-            .readBlockAddress(readBlockAddress),
-            .readByteAddress(readByteAddress),
-            .pixBlock(refFramePixelBlock),
-            .pixelOut(refFramePixel),
-            .writeBlockAddress(),
-            .pixelBlockIn(),
-            .writeEn()
-            );
+//    frameMem #("logo-Cidar-Color320_240.list") refFrame(
+//            .readBlockAddress(readBlockAddress),
+//            .readByteAddress(readByteAddress),
+//            .pixBlock(refFramePixelBlock),
+//            .pixelOut(refFramePixel),
+//            .writeBlockAddress(),
+//            .pixelBlockIn(),
+//            .writeEn()
+//            );
             
-    frameMem outFrame(
-            .readBlockAddress(readBlockAddress),
-            .readByteAddress(readByteAddress),
-            .pixBlock(outFramePixelBlock),
-            .pixelOut(outFramePixel),
-            .writeBlockAddress(writeBlockAddress),
-            .pixelBlockIn(pixelBlockIn),
-            .writeEn(writeEn)
-            );
+//    frameMem #("logo-Cidar-Color320_240.list") outFrame(
+//            .readBlockAddress(readBlockAddress),
+//            .readByteAddress(readByteAddress),
+//            .pixBlock(outFramePixelBlock),
+//            .pixelOut(outFramePixel),
+//            .writeBlockAddress(writeBlockAddress),
+//            .pixelBlockIn(pixelBlockIn),
+//            .writeEn(writeEn)
+//            );
     
-    assign pixelBlockOut = (frameSelBlock == 0) ? frame0PixelBlock :
-                           ((frameSelBlock == 1) ? frame1PixelBlock :
-                           ((frameSelBlock == 2) ? frame2PixelBlock :
-                           ((frameSelBlock == 3) ? refFramePixelBlock :
-                           ((frameSelBlock == 4) ? outFramePixelBlock : refFramePixelBlock))));
+//    assign pixelBlockOut = (frameSelBlock == 0) ? frame0PixelBlock :
+//                           ((frameSelBlock == 1) ? frame1PixelBlock :
+//                           ((frameSelBlock == 2) ? frame2PixelBlock :
+//                           ((frameSelBlock == 3) ? refFramePixelBlock :
+//                           ((frameSelBlock == 4) ? outFramePixelBlock : refFramePixelBlock))));
                            
-    assign pixelOut = (frameSelByte == 0) ? frame0Pixel :
-                      ((frameSelByte == 1) ? frame1Pixel :
-                      ((frameSelByte == 2) ? frame2Pixel :
-                      ((frameSelByte == 3) ? refFramePixel :
-                      ((frameSelByte == 4) ? outFramePixel : refFramePixel))));
+//    assign pixelOut = (frameSelByte == 0) ? frame0Pixel :
+//                      ((frameSelByte == 1) ? frame1Pixel :
+//                      ((frameSelByte == 2) ? frame2Pixel :
+//                      ((frameSelByte == 3) ? refFramePixel :
+//                      ((frameSelByte == 4) ? outFramePixel : refFramePixel))));
     
     
 endmodule

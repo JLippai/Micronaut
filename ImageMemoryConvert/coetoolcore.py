@@ -63,11 +63,11 @@ class CoeConverter:
             #out_coe_file.write('; VGA Memory Map\n; .COE file with hex coefficients\n; Height: '+self.height+', Width: '+self.width+'\n\nmemory_initialization_radix=16;\n')
             #out_coe_file.write('memory_initialization_vector=\n')
             for i,b in enumerate(self.imgbytes):
-            #    if i > 0 and i % 128 == 0:
-                out_coe_file.write(b)
-                out_coe_file.write('\n')
-            #    else:
-            #        out_coe_file.write(b)
+                if i > 0 and i % 128 == 0:
+                    out_coe_file.write(b)
+                    out_coe_file.write('\n')
+                else:
+                    out_coe_file.write(b)
                 # if i > 0 and i % 16 == 0:           #TO-DO check if necessary, check in FPGA
                 #     out_coe_file.write('\n')
                 # if i == len(self.imgbytes)-1:
@@ -75,7 +75,7 @@ class CoeConverter:
                 # else: 
                 #     out_coe_file.write(b+',')
 
-            out_coe_file.write(';')
+            #out_coe_file.write(';')
             
             
     def exportImg(self, out_file, imgformat):
