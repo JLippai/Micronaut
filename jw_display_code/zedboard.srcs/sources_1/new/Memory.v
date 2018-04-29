@@ -20,12 +20,14 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 module Memory(
-    input [12:0] readBlockAddress,
     input [16:0] readByteAddress,
-    output [127:0] pixelBlockOut,
-    output [7:0] pixelOut
+    input [12:0] readBlockAddress,
+    input [12:0] writeBlockAddress,
+    input [127:0] pixelBlockWrite,
+    output [127:0] pixelBlockRead,
+    output [7:0] pixelRead
     );
     
-    frameMem frame1(readBlockAddress, readByteAddress, pixelBlockOut[127:96], pixelBlockOut[95:64], pixelBlockOut[63:32], pixelBlockOut[31:0], pixelOut);
+    frameMem frame1(readByteAddress, readBlockAddress, writeBlockAddress, pixelBlockWrite[127:96], pixelBlockWrite[95:64], pixelBlockWrite[63:32], pixelBlockWrite[31:0], pixelBlockRead[127:96], pixelBlockRead[95:64], pixelBlockRead[63:32], pixelBlockRead[31:0], pixelRead);
     
 endmodule
