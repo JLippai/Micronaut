@@ -32,8 +32,8 @@ set_property ip_output_repo c:/devspace/school/Micronaut/jw_display_code/zedboar
 set_property ip_cache_permissions {read write} [current_project]
 add_files C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/redcrossing.coe
 add_files C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/bluenocrossing.coe
-add_files c:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/cidarlogo.coe
-add_files c:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/background.coe
+add_files C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/cidarlogo.coe
+add_files C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/background.coe
 read_verilog -library xil_defaultlib {
   C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/Memory.v
   C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/VGAcontrol.v
@@ -44,7 +44,7 @@ read_verilog -library xil_defaultlib {
 read_ip -quiet C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci
 set_property used_in_implementation false [get_files -all c:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0_ooc.xdc]
 
-read_ip -quiet c:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/ip/blk_mem_logo/blk_mem_logo.xci
+read_ip -quiet C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/ip/blk_mem_logo/blk_mem_logo.xci
 set_property used_in_implementation false [get_files -all c:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/ip/blk_mem_logo/blk_mem_logo_ooc.xdc]
 
 # Mark all dcp files as not used in implementation to prevent them from being

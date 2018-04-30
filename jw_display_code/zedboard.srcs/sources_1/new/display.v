@@ -80,13 +80,15 @@ module display(
         if (pixelRow >= VID_Y_POS && pixelRow < (VID_Y_POS + FRAME_HEIGHT) &&
             pixelCol >= VID_X_POS && pixelCol < (VID_X_POS + FRAME_WIDTH)) begin
             
-            frameSel <= 3'd1;
-            vidFrameEn <= 1'b1;
+            frameSel = 3'd1;
+            vidFrameEn = 1'b1;
             
             //doesn't work
             //pixelAddress <= ((pixelCol - VID_X_POS) + ((pixelRow - VID_Y_POS) * FRAME_WIDTH)) / 5'd16;     //((pixelCol - 0) + ((pixelRow - 0) * 320)) / 16   
             //doesn't work
-            //pixelAddress <= 32'd17/32'd16;
+           // pixelAddress <= 32'd17/32'd16;
+           //works???
+           // pixelAddress = 32'd17/32'd16;
             pixelAddress = ((pixelCol - VID_X_POS) + ((pixelRow - VID_Y_POS) * FRAME_WIDTH)) >> 4;
             pixel_ctr = ((pixelCol - VID_X_POS) + ((pixelRow - VID_Y_POS) * FRAME_WIDTH)) % 16;
             pixelBlue = pixelBlock[(((15-pixel_ctr) * 8) + 1) -: 2] << 2;  // Scale by 4 to convert 2 bit to 4 bit color
@@ -94,34 +96,34 @@ module display(
             pixelRed = pixelBlock[((15-pixel_ctr) * 8 + 7) -: 3] << 1;   // Scale by 2 to convert 3 bit to 4 bit color
         end else begin
             vidFrameEn = 1'b0;
-            pixelAddress = 17'd0;
+            //pixelAddress = 17'd0;
         end
         
         // CIDAR LOGO
         if (pixelRow >=LOGO_Y_POS && pixelRow < (LOGO_Y_POS + FRAME_HEIGHT) &&
             pixelCol >= LOGO_X_POS && pixelCol < (LOGO_X_POS + FRAME_WIDTH)) begin
-            frameSel <= 3'd0;
-            logoEn <= 1'b1;
+            frameSel = 3'd0;
+            logoEn = 1'b1;
             //works
-            pixelAddress <= ((pixelCol - LOGO_X_POS) + ((pixelRow - LOGO_Y_POS) * FRAME_WIDTH)) / 16;   //((pixelCol - 320) + ((pixelRow - 0) * 320)) / 16
+            pixelAddress = ((pixelCol - LOGO_X_POS) + ((pixelRow - LOGO_Y_POS) * FRAME_WIDTH)) / 16;   //((pixelCol - 320) + ((pixelRow - 0) * 320)) / 16
             
-            pixel_ctr <= ((pixelCol - LOGO_X_POS) + ((pixelRow - LOGO_Y_POS) * FRAME_WIDTH)) % 16;
-            pixelBlue <= pixelBlock[(((15-pixel_ctr) * 8) + 1) -: 2] << 2;  // Scale by 4 to convert 2 bit to 4 bit color
-            pixelGreen <= pixelBlock[((15-pixel_ctr) * 8 + 4) -: 3] << 1; // Scale by 2 to convert 3 bit to 4 bit color
-            pixelRed <= pixelBlock[((15-pixel_ctr) * 8 + 7) -: 3] << 1;   // Scale by 2 to convert 3 bit to 4 bit color
+            pixel_ctr = ((pixelCol - LOGO_X_POS) + ((pixelRow - LOGO_Y_POS) * FRAME_WIDTH)) % 16;
+            pixelBlue = pixelBlock[(((15-pixel_ctr) * 8) + 1) -: 2] << 2;  // Scale by 4 to convert 2 bit to 4 bit color
+            pixelGreen = pixelBlock[((15-pixel_ctr) * 8 + 4) -: 3] << 1; // Scale by 2 to convert 3 bit to 4 bit color
+            pixelRed = pixelBlock[((15-pixel_ctr) * 8 + 7) -: 3] << 1;   // Scale by 2 to convert 3 bit to 4 bit color
         end else begin
-            logoEn <= 1'b0;
-            pixelAddress <= 17'd0;
+            logoEn = 1'b0;
+            //pixelAddress = 17'd0;
         end
         
         // Test Area for Good and Bad droplet reporting
         if (pixelRow >= TEXT_Y_POS && pixelRow < (TEXT_Y_POS + (FONT_HEIGHT * 3)) &&
             pixelCol >= TEXT_X_POS && pixelCol < (TEXT_X_POS + (FONT_WIDTH * 12))) begin
-            textEn <= 1'b1;  // In the Text Block
+            textEn = 1'b1;  // In the Text Block
             // Calculate which text position
             if (pixelRow >= (TEXT_Y_POS + (2 * FONT_HEIGHT))) text_grid <= ((pixelCol - TEXT_X_POS) / FONT_WIDTH) + 24;
             else if (pixelRow >= (TEXT_Y_POS + FONT_HEIGHT)) text_grid <= ((pixelCol - TEXT_X_POS) / FONT_WIDTH) + 12;
-            else text_grid <= ((pixelCol - TEXT_X_POS) / FONT_WIDTH);
+            else text_grid = ((pixelCol - TEXT_X_POS) / FONT_WIDTH);
             
             case (text_grid)
                 0 : char_sel = `CHAR_G;
@@ -163,9 +165,9 @@ module display(
                 default: char_sel = `CHAR_SPACE;
             endcase
             
-            char_col <= ((pixelCol - TEXT_X_POS) % FONT_WIDTH);
-            char_row <= ((pixelRow - TEXT_Y_POS) % FONT_HEIGHT);
-        end else textEn <= 1'b0;  // Not In the Text Block
+            char_col = ((pixelCol - TEXT_X_POS) % FONT_WIDTH);
+            char_row = ((pixelRow - TEXT_Y_POS) % FONT_HEIGHT);
+        end else textEn = 1'b0;  // Not In the Text Block
     end
     
     assign red = !vid_en ? (vidFrameEn || logoEn) ? pixelRed : ((textEn && pixelEn) ? 4'b1111 : 4'b0000) : 4'b0000;

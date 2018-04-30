@@ -2,8 +2,8 @@
 # Vivado v2018.1 (64-bit)
 # SW Build 2188600 on Wed Apr  4 18:40:38 MDT 2018
 # IP Build 2185939 on Wed Apr  4 20:55:05 MDT 2018
-# Start of session at: Sun Apr 29 21:43:44 2018
-# Process ID: 16516
+# Start of session at: Mon Apr 30 18:08:52 2018
+# Process ID: 16984
 # Current directory: C:/devspace/school/Micronaut/jw_display_code/zedboard.runs/synth_1
 # Command line: vivado.exe -log main.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source main.tcl
 # Log file: C:/devspace/school/Micronaut/jw_display_code/zedboard.runs/synth_1/main.vds
@@ -15,9 +15,9 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 24604 
+INFO: Helper process launched with PID 13028 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 375.191 ; gain = 99.027
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 376.023 ; gain = 99.770
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'main' [C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/main.v:23]
 INFO: [Synth 8-6157] synthesizing module 'vga_controller_640_60' [C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/VGAcontrol.v:21]
@@ -51,11 +51,11 @@ WARNING: [Synth 8-689] width (5) of port connection 'char_row' does not match po
 WARNING: [Synth 8-689] width (5) of port connection 'char_col' does not match port width (6) of module 'disp_char' [C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/display.v:73]
 INFO: [Synth 8-6155] done synthesizing module 'display' (3#1) [C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/display.v:23]
 INFO: [Synth 8-6157] synthesizing module 'Memory' [C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/Memory.v:22]
-INFO: [Synth 8-6157] synthesizing module 'blk_mem_logo' [C:/devspace/school/Micronaut/jw_display_code/zedboard.runs/synth_1/.Xil/Vivado-16516-JFW1702-WS/realtime/blk_mem_logo_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'blk_mem_logo' (4#1) [C:/devspace/school/Micronaut/jw_display_code/zedboard.runs/synth_1/.Xil/Vivado-16516-JFW1702-WS/realtime/blk_mem_logo_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'blk_mem_logo' [C:/devspace/school/Micronaut/jw_display_code/zedboard.runs/synth_1/.Xil/Vivado-16984-JFW1702-WS/realtime/blk_mem_logo_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'blk_mem_logo' (4#1) [C:/devspace/school/Micronaut/jw_display_code/zedboard.runs/synth_1/.Xil/Vivado-16984-JFW1702-WS/realtime/blk_mem_logo_stub.v:6]
 WARNING: [Synth 8-689] width (17) of port connection 'addrb' does not match port width (13) of module 'blk_mem_logo' [C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/Memory.v:67]
-INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_0' [C:/devspace/school/Micronaut/jw_display_code/zedboard.runs/synth_1/.Xil/Vivado-16516-JFW1702-WS/realtime/blk_mem_gen_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_0' (5#1) [C:/devspace/school/Micronaut/jw_display_code/zedboard.runs/synth_1/.Xil/Vivado-16516-JFW1702-WS/realtime/blk_mem_gen_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_0' [C:/devspace/school/Micronaut/jw_display_code/zedboard.runs/synth_1/.Xil/Vivado-16984-JFW1702-WS/realtime/blk_mem_gen_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_0' (5#1) [C:/devspace/school/Micronaut/jw_display_code/zedboard.runs/synth_1/.Xil/Vivado-16984-JFW1702-WS/realtime/blk_mem_gen_0_stub.v:6]
 WARNING: [Synth 8-689] width (17) of port connection 'addrb' does not match port width (13) of module 'blk_mem_gen_0' [C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/Memory.v:84]
 WARNING: [Synth 8-3848] Net pixelOutProc in module/entity Memory does not have driver. [C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/Memory.v:28]
 WARNING: [Synth 8-3848] Net frame2PixelVga in module/entity Memory does not have driver. [C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/Memory.v:40]
@@ -167,7 +167,7 @@ WARNING: [Synth 8-3331] design Memory has unconnected port pixelOutProc[29]
 WARNING: [Synth 8-3331] design Memory has unconnected port pixelOutProc[28]
 INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 430.867 ; gain = 154.703
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 430.773 ; gain = 154.520
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -194,10 +194,10 @@ WARNING: [Synth 8-3295] tying undriven pin mem:readAddressProc[0] to constant 0 
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 430.867 ; gain = 154.703
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 430.773 ; gain = 154.520
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 430.867 ; gain = 154.703
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 430.773 ; gain = 154.520
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7z020clg484-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -221,16 +221,16 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.012 . Memory (MB): peak = 790.004 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.017 . Memory (MB): peak = 790.309 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:20 ; elapsed = 00:00:24 . Memory (MB): peak = 790.004 ; gain = 513.840
+Finished Constraint Validation : Time (s): cpu = 00:00:19 ; elapsed = 00:00:23 . Memory (MB): peak = 790.309 ; gain = 514.055
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:20 ; elapsed = 00:00:24 . Memory (MB): peak = 790.004 ; gain = 513.840
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:19 ; elapsed = 00:00:23 . Memory (MB): peak = 790.309 ; gain = 514.055
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -238,24 +238,23 @@ Start Applying 'set_property' XDC Constraints
 Applied set_property DONT_TOUCH = true for mem/frame1. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for mem/frame0. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:20 ; elapsed = 00:00:24 . Memory (MB): peak = 790.004 ; gain = 513.840
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:19 ; elapsed = 00:00:23 . Memory (MB): peak = 790.309 ; gain = 514.055
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5546] ROM "vcounter" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "char_img" won't be mapped to RAM because it is too sparse
-WARNING: [Synth 8-3936] Found unconnected internal register 'pixel_ctr_reg' and it is trimmed from '8' to '7' bits. [C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/display.v:85]
-DSP Debug: swapped A/B pins for adder 000002C48C83BF50
+DSP Debug: swapped A/B pins for adder 000001F85F038AA0
 INFO: [Synth 8-5545] ROM "LD0" won't be mapped to RAM because address size (27) is larger than maximum supported(25)
-WARNING: [Synth 8-327] inferring latch for variable 'frameSel_reg' [C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/display.v:82]
-WARNING: [Synth 8-327] inferring latch for variable 'pixelBlue_reg' [C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/display.v:86]
-WARNING: [Synth 8-327] inferring latch for variable 'pixelGreen_reg' [C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/display.v:87]
-WARNING: [Synth 8-327] inferring latch for variable 'pixelRed_reg' [C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/display.v:88]
+WARNING: [Synth 8-327] inferring latch for variable 'frameSel_reg' [C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/display.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'pixelAddress_reg' [C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/display.v:92]
+WARNING: [Synth 8-327] inferring latch for variable 'pixelBlue_reg' [C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/display.v:94]
+WARNING: [Synth 8-327] inferring latch for variable 'pixelGreen_reg' [C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/display.v:95]
+WARNING: [Synth 8-327] inferring latch for variable 'pixelRed_reg' [C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/display.v:96]
 WARNING: [Synth 8-327] inferring latch for variable 'char_sel_reg' [C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/display.v:71]
 WARNING: [Synth 8-327] inferring latch for variable 'char_row_reg' [C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/display.v:72]
 WARNING: [Synth 8-327] inferring latch for variable 'char_col_reg' [C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/display.v:73]
-WARNING: [Synth 8-327] inferring latch for variable 'pixel_ctr_reg' [C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/display.v:85]
-WARNING: [Synth 8-327] inferring latch for variable 'text_grid_reg' [C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/display.v:114]
+WARNING: [Synth 8-327] inferring latch for variable 'text_grid_reg' [C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/display.v:124]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:20 ; elapsed = 00:00:24 . Memory (MB): peak = 790.004 ; gain = 513.840
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:19 ; elapsed = 00:00:24 . Memory (MB): peak = 790.309 ; gain = 514.055
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -272,7 +271,6 @@ Detailed RTL Component Info :
 	   2 Input     27 Bit       Adders := 1     
 	   2 Input     11 Bit       Adders := 2     
 	   2 Input     10 Bit       Adders := 1     
-	   2 Input      7 Bit       Adders := 1     
 	   2 Input      6 Bit       Adders := 1     
 	   2 Input      5 Bit       Adders := 1     
 +---Registers : 
@@ -284,9 +282,9 @@ Detailed RTL Component Info :
 	   2 Input     27 Bit        Muxes := 1     
 	   2 Input     17 Bit        Muxes := 1     
 	   2 Input     11 Bit        Muxes := 2     
-	   2 Input      7 Bit        Muxes := 1     
-	   2 Input      5 Bit        Muxes := 4     
-	   2 Input      4 Bit        Muxes := 16    
+	   2 Input      6 Bit        Muxes := 2     
+	   2 Input      5 Bit        Muxes := 5     
+	   2 Input      4 Bit        Muxes := 19    
 	   2 Input      1 Bit        Muxes := 3     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
@@ -325,14 +323,13 @@ Module display
 Detailed RTL Component Info : 
 +---Adders : 
 	   2 Input     32 Bit       Adders := 1     
-	   2 Input      7 Bit       Adders := 1     
 	   2 Input      6 Bit       Adders := 1     
 	   2 Input      5 Bit       Adders := 1     
 +---Muxes : 
 	   2 Input     17 Bit        Muxes := 1     
-	   2 Input      7 Bit        Muxes := 1     
-	   2 Input      5 Bit        Muxes := 4     
-	   2 Input      4 Bit        Muxes := 16    
+	   2 Input      6 Bit        Muxes := 2     
+	   2 Input      5 Bit        Muxes := 5     
+	   2 Input      4 Bit        Muxes := 19    
 	   2 Input      1 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Hierarchical Component Statistics
@@ -350,6 +347,9 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 Warning: Parallel synthesis criteria is not met 
+DSP Report: Generating DSP pixelAddress1, operation Mode is: C+A*(B:0x140).
+DSP Report: operator pixelAddress1 is absorbed into DSP pixelAddress1.
+DSP Report: operator pixelAddress2 is absorbed into DSP pixelAddress1.
 DSP Report: Generating DSP pixelAddress2, operation Mode is: A*(B:0x140).
 DSP Report: operator pixelAddress2 is absorbed into DSP pixelAddress2.
 DSP Report: Generating DSP pixelAddress1, operation Mode is: PCIN+(A:0x0):B+(C:0xfffffffffec0).
@@ -359,20 +359,21 @@ INFO: [Synth 8-5545] ROM "LD0" won't be mapped to RAM because address size (27) 
 INFO: [Synth 8-3886] merging instance 'disp/frameSel_reg[2]' (LDC) to 'disp/frameSel_reg[1]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (disp/\frameSel_reg[1] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_3/\badDrops_reg[0] )
-INFO: [Synth 8-3886] merging instance 'disp/pixel_ctr_reg[6]' (LD) to 'disp/pixelRed_reg[0]'
-INFO: [Synth 8-3886] merging instance 'disp/pixel_ctr_reg[5]' (LD) to 'disp/pixelRed_reg[0]'
-INFO: [Synth 8-3886] merging instance 'disp/pixel_ctr_reg[4]' (LD) to 'disp/pixelRed_reg[0]'
 INFO: [Synth 8-3886] merging instance 'disp/pixelRed_reg[0]' (LD) to 'disp/pixelGreen_reg[0]'
 INFO: [Synth 8-3886] merging instance 'disp/pixelGreen_reg[0]' (LD) to 'disp/pixelBlue_reg[1]'
 INFO: [Synth 8-3886] merging instance 'disp/pixelBlue_reg[0]' (LD) to 'disp/pixelBlue_reg[1]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (disp/\pixelBlue_reg[1] )
 WARNING: [Synth 8-3332] Sequential element (frameSel_reg[1]) is unused and will be removed from module display.
+WARNING: [Synth 8-3332] Sequential element (pixelAddress_reg[16]) is unused and will be removed from module display.
+WARNING: [Synth 8-3332] Sequential element (pixelAddress_reg[15]) is unused and will be removed from module display.
+WARNING: [Synth 8-3332] Sequential element (pixelAddress_reg[14]) is unused and will be removed from module display.
+WARNING: [Synth 8-3332] Sequential element (pixelAddress_reg[13]) is unused and will be removed from module display.
 WARNING: [Synth 8-3332] Sequential element (char_row_reg[1]) is unused and will be removed from module display.
 WARNING: [Synth 8-3332] Sequential element (char_row_reg[0]) is unused and will be removed from module display.
 WARNING: [Synth 8-3332] Sequential element (char_col_reg[0]) is unused and will be removed from module display.
 WARNING: [Synth 8-3332] Sequential element (pixelBlue_reg[1]) is unused and will be removed from module display.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:29 ; elapsed = 00:00:33 . Memory (MB): peak = 790.004 ; gain = 513.840
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:29 ; elapsed = 00:00:33 . Memory (MB): peak = 790.309 ; gain = 514.055
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -382,6 +383,7 @@ DSP: Preliminary Mapping  Report (see note below)
 +------------+-----------------------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
 |Module Name | DSP Mapping                       | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
 +------------+-----------------------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|display     | C+A*(B:0x140)                     | 12     | 9      | 12     | -      | 21     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
 |display     | A*(B:0x140)                       | 12     | 9      | -      | -      | 21     | 0    | 0    | -    | -    | -     | 0    | 0    | 
 |display     | PCIN+(A:0x0):B+(C:0xfffffffffec0) | 30     | 12     | 10     | -      | -1     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
 +------------+-----------------------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
@@ -400,13 +402,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:43 ; elapsed = 00:00:49 . Memory (MB): peak = 844.336 ; gain = 568.172
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:42 ; elapsed = 00:00:48 . Memory (MB): peak = 853.160 ; gain = 576.906
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:43 ; elapsed = 00:00:49 . Memory (MB): peak = 845.938 ; gain = 569.773
+Finished Timing Optimization : Time (s): cpu = 00:00:43 ; elapsed = 00:00:48 . Memory (MB): peak = 854.445 ; gain = 578.191
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -418,7 +420,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:44 ; elapsed = 00:00:49 . Memory (MB): peak = 875.773 ; gain = 599.609
+Finished Technology Mapping : Time (s): cpu = 00:00:43 ; elapsed = 00:00:48 . Memory (MB): peak = 893.551 ; gain = 617.297
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -442,7 +444,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:45 ; elapsed = 00:00:50 . Memory (MB): peak = 875.773 ; gain = 599.609
+Finished IO Insertion : Time (s): cpu = 00:00:44 ; elapsed = 00:00:49 . Memory (MB): peak = 893.551 ; gain = 617.297
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -455,7 +457,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:45 ; elapsed = 00:00:50 . Memory (MB): peak = 875.773 ; gain = 599.609
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:44 ; elapsed = 00:00:49 . Memory (MB): peak = 893.551 ; gain = 617.297
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -467,25 +469,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:45 ; elapsed = 00:00:50 . Memory (MB): peak = 875.773 ; gain = 599.609
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:44 ; elapsed = 00:00:49 . Memory (MB): peak = 893.551 ; gain = 617.297
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:45 ; elapsed = 00:00:50 . Memory (MB): peak = 875.773 ; gain = 599.609
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:44 ; elapsed = 00:00:49 . Memory (MB): peak = 893.551 ; gain = 617.297
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:45 ; elapsed = 00:00:50 . Memory (MB): peak = 875.773 ; gain = 599.609
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:44 ; elapsed = 00:00:49 . Memory (MB): peak = 893.551 ; gain = 617.297
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:45 ; elapsed = 00:00:50 . Memory (MB): peak = 875.773 ; gain = 599.609
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:44 ; elapsed = 00:00:49 . Memory (MB): peak = 893.551 ; gain = 617.297
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -509,51 +511,52 @@ Report Cell Usage:
 |4     |CARRY4        |   137|
 |5     |DSP48E1       |     1|
 |6     |DSP48E1_1     |     1|
-|7     |LUT1          |    61|
-|8     |LUT2          |   233|
-|9     |LUT3          |   121|
-|10    |LUT4          |   146|
-|11    |LUT5          |   177|
-|12    |LUT6          |   568|
-|13    |MUXF7         |    52|
-|14    |MUXF8         |     2|
-|15    |FDRE          |    86|
-|16    |LD            |    30|
-|17    |LDC           |     1|
-|18    |IBUF          |     1|
-|19    |OBUF          |    15|
+|7     |DSP48E1_2     |     1|
+|8     |LUT1          |    61|
+|9     |LUT2          |   234|
+|10    |LUT3          |   112|
+|11    |LUT4          |   109|
+|12    |LUT5          |   133|
+|13    |LUT6          |   304|
+|14    |MUXF7         |    43|
+|15    |MUXF8         |     2|
+|16    |FDRE          |    86|
+|17    |LD            |    39|
+|18    |LDC           |     1|
+|19    |IBUF          |     1|
+|20    |OBUF          |    15|
 +------+--------------+------+
 
 Report Instance Areas: 
 +------+---------+----------------------+------+
 |      |Instance |Module                |Cells |
 +------+---------+----------------------+------+
-|1     |top      |                      |  2145|
-|2     |  disp   |display               |   893|
+|1     |top      |                      |  1793|
+|2     |  disp   |display               |   671|
 |3     |  mem    |Memory                |   616|
-|4     |  vga    |vga_controller_640_60 |    97|
+|4     |  vga    |vga_controller_640_60 |   155|
 +------+---------+----------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:45 ; elapsed = 00:00:50 . Memory (MB): peak = 875.773 ; gain = 599.609
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:44 ; elapsed = 00:00:49 . Memory (MB): peak = 893.551 ; gain = 617.297
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 18 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:31 ; elapsed = 00:00:40 . Memory (MB): peak = 875.773 ; gain = 240.473
-Synthesis Optimization Complete : Time (s): cpu = 00:00:45 ; elapsed = 00:00:50 . Memory (MB): peak = 875.773 ; gain = 599.609
+Synthesis finished with 0 errors, 0 critical warnings and 21 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:30 ; elapsed = 00:00:40 . Memory (MB): peak = 893.551 ; gain = 257.762
+Synthesis Optimization Complete : Time (s): cpu = 00:00:44 ; elapsed = 00:00:50 . Memory (MB): peak = 893.551 ; gain = 617.297
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 225 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 226 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 31 instances were transformed.
-  LD => LDCE: 30 instances
+  A total of 40 instances were transformed.
+  LD => LDCE: 39 instances
   LDC => LDCE: 1 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-43 Infos, 145 Warnings, 0 Critical Warnings and 0 Errors encountered.
+40 Infos, 148 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:47 ; elapsed = 00:00:54 . Memory (MB): peak = 875.773 ; gain = 611.078
+synth_design: Time (s): cpu = 00:00:46 ; elapsed = 00:00:54 . Memory (MB): peak = 893.551 ; gain = 628.766
 INFO: [Common 17-1381] The checkpoint 'C:/devspace/school/Micronaut/jw_display_code/zedboard.runs/synth_1/main.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file main_utilization_synth.rpt -pb main_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.049 . Memory (MB): peak = 875.773 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Sun Apr 29 21:45:15 2018...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.050 . Memory (MB): peak = 893.551 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Mon Apr 30 18:10:02 2018...

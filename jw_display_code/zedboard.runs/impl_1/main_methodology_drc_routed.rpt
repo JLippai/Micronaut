@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.1 (win64) Build 2188600 Wed Apr  4 18:40:38 MDT 2018
-| Date         : Sun Apr 29 21:47:15 2018
+| Date         : Mon Apr 30 18:11:37 2018
 | Host         : JFW1702-WS running 64-bit major release  (build 9200)
 | Command      : report_methodology -file main_methodology_drc_routed.rpt -pb main_methodology_drc_routed.pb -rpx main_methodology_drc_routed.rpx
 | Design       : main
@@ -23,13 +23,13 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 170
+             Violations found: 179
 +-----------+----------+------------------------------+------------+
 | Rule      | Severity | Description                  | Violations |
 +-----------+----------+------------------------------+------------+
 | LUTAR-1   | Warning  | LUT drives async reset alert | 1          |
 | TIMING-17 | Warning  | Non-clocked sequential cell  | 138        |
-| TIMING-20 | Warning  | Non-clocked latch            | 31         |
+| TIMING-20 | Warning  | Non-clocked latch            | 40         |
 +-----------+----------+------------------------------+------------+
 
 2. REPORT DETAILS
@@ -796,90 +796,135 @@ Related violations: <none>
 
 TIMING-20#14 Warning
 Non-clocked latch  
-The latch disp/pixelBlue_reg[2] cannot be properly analyzed as its control pin disp/pixelBlue_reg[2]/G is not reached by a timing clock
+The latch disp/pixelAddress_reg[0] cannot be properly analyzed as its control pin disp/pixelAddress_reg[0]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#15 Warning
 Non-clocked latch  
-The latch disp/pixelBlue_reg[3] cannot be properly analyzed as its control pin disp/pixelBlue_reg[3]/G is not reached by a timing clock
+The latch disp/pixelAddress_reg[10] cannot be properly analyzed as its control pin disp/pixelAddress_reg[10]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#16 Warning
 Non-clocked latch  
-The latch disp/pixelGreen_reg[1] cannot be properly analyzed as its control pin disp/pixelGreen_reg[1]/G is not reached by a timing clock
+The latch disp/pixelAddress_reg[11] cannot be properly analyzed as its control pin disp/pixelAddress_reg[11]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#17 Warning
 Non-clocked latch  
-The latch disp/pixelGreen_reg[2] cannot be properly analyzed as its control pin disp/pixelGreen_reg[2]/G is not reached by a timing clock
+The latch disp/pixelAddress_reg[12] cannot be properly analyzed as its control pin disp/pixelAddress_reg[12]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#18 Warning
 Non-clocked latch  
-The latch disp/pixelGreen_reg[3] cannot be properly analyzed as its control pin disp/pixelGreen_reg[3]/G is not reached by a timing clock
+The latch disp/pixelAddress_reg[1] cannot be properly analyzed as its control pin disp/pixelAddress_reg[1]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#19 Warning
 Non-clocked latch  
-The latch disp/pixelRed_reg[1] cannot be properly analyzed as its control pin disp/pixelRed_reg[1]/G is not reached by a timing clock
+The latch disp/pixelAddress_reg[2] cannot be properly analyzed as its control pin disp/pixelAddress_reg[2]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#20 Warning
 Non-clocked latch  
-The latch disp/pixelRed_reg[2] cannot be properly analyzed as its control pin disp/pixelRed_reg[2]/G is not reached by a timing clock
+The latch disp/pixelAddress_reg[3] cannot be properly analyzed as its control pin disp/pixelAddress_reg[3]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#21 Warning
 Non-clocked latch  
-The latch disp/pixelRed_reg[3] cannot be properly analyzed as its control pin disp/pixelRed_reg[3]/G is not reached by a timing clock
+The latch disp/pixelAddress_reg[4] cannot be properly analyzed as its control pin disp/pixelAddress_reg[4]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#22 Warning
 Non-clocked latch  
-The latch disp/pixel_ctr_reg[0] cannot be properly analyzed as its control pin disp/pixel_ctr_reg[0]/G is not reached by a timing clock
+The latch disp/pixelAddress_reg[5] cannot be properly analyzed as its control pin disp/pixelAddress_reg[5]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#23 Warning
 Non-clocked latch  
-The latch disp/pixel_ctr_reg[1] cannot be properly analyzed as its control pin disp/pixel_ctr_reg[1]/G is not reached by a timing clock
+The latch disp/pixelAddress_reg[6] cannot be properly analyzed as its control pin disp/pixelAddress_reg[6]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#24 Warning
 Non-clocked latch  
-The latch disp/pixel_ctr_reg[2] cannot be properly analyzed as its control pin disp/pixel_ctr_reg[2]/G is not reached by a timing clock
+The latch disp/pixelAddress_reg[7] cannot be properly analyzed as its control pin disp/pixelAddress_reg[7]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#25 Warning
 Non-clocked latch  
-The latch disp/pixel_ctr_reg[3] cannot be properly analyzed as its control pin disp/pixel_ctr_reg[3]/G is not reached by a timing clock
+The latch disp/pixelAddress_reg[8] cannot be properly analyzed as its control pin disp/pixelAddress_reg[8]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#26 Warning
 Non-clocked latch  
-The latch disp/text_grid_reg[0] cannot be properly analyzed as its control pin disp/text_grid_reg[0]/G is not reached by a timing clock
+The latch disp/pixelAddress_reg[9] cannot be properly analyzed as its control pin disp/pixelAddress_reg[9]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#27 Warning
 Non-clocked latch  
-The latch disp/text_grid_reg[1] cannot be properly analyzed as its control pin disp/text_grid_reg[1]/G is not reached by a timing clock
+The latch disp/pixelBlue_reg[2] cannot be properly analyzed as its control pin disp/pixelBlue_reg[2]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#28 Warning
 Non-clocked latch  
-The latch disp/text_grid_reg[2] cannot be properly analyzed as its control pin disp/text_grid_reg[2]/G is not reached by a timing clock
+The latch disp/pixelBlue_reg[3] cannot be properly analyzed as its control pin disp/pixelBlue_reg[3]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#29 Warning
 Non-clocked latch  
-The latch disp/text_grid_reg[3] cannot be properly analyzed as its control pin disp/text_grid_reg[3]/G is not reached by a timing clock
+The latch disp/pixelGreen_reg[1] cannot be properly analyzed as its control pin disp/pixelGreen_reg[1]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#30 Warning
 Non-clocked latch  
-The latch disp/text_grid_reg[4] cannot be properly analyzed as its control pin disp/text_grid_reg[4]/G is not reached by a timing clock
+The latch disp/pixelGreen_reg[2] cannot be properly analyzed as its control pin disp/pixelGreen_reg[2]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#31 Warning
+Non-clocked latch  
+The latch disp/pixelGreen_reg[3] cannot be properly analyzed as its control pin disp/pixelGreen_reg[3]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#32 Warning
+Non-clocked latch  
+The latch disp/pixelRed_reg[1] cannot be properly analyzed as its control pin disp/pixelRed_reg[1]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#33 Warning
+Non-clocked latch  
+The latch disp/pixelRed_reg[2] cannot be properly analyzed as its control pin disp/pixelRed_reg[2]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#34 Warning
+Non-clocked latch  
+The latch disp/pixelRed_reg[3] cannot be properly analyzed as its control pin disp/pixelRed_reg[3]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#35 Warning
+Non-clocked latch  
+The latch disp/text_grid_reg[0] cannot be properly analyzed as its control pin disp/text_grid_reg[0]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#36 Warning
+Non-clocked latch  
+The latch disp/text_grid_reg[1] cannot be properly analyzed as its control pin disp/text_grid_reg[1]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#37 Warning
+Non-clocked latch  
+The latch disp/text_grid_reg[2] cannot be properly analyzed as its control pin disp/text_grid_reg[2]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#38 Warning
+Non-clocked latch  
+The latch disp/text_grid_reg[3] cannot be properly analyzed as its control pin disp/text_grid_reg[3]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#39 Warning
+Non-clocked latch  
+The latch disp/text_grid_reg[4] cannot be properly analyzed as its control pin disp/text_grid_reg[4]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#40 Warning
 Non-clocked latch  
 The latch disp/text_grid_reg[5] cannot be properly analyzed as its control pin disp/text_grid_reg[5]/G is not reached by a timing clock
 Related violations: <none>

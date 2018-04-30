@@ -76,7 +76,7 @@ set rc [catch {
   set_property XPM_LIBRARIES XPM_MEMORY [current_project]
   add_files -quiet C:/devspace/school/Micronaut/jw_display_code/zedboard.runs/synth_1/main.dcp
   read_ip -quiet C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci
-  read_ip -quiet c:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/ip/blk_mem_logo/blk_mem_logo.xci
+  read_ip -quiet C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/ip/blk_mem_logo/blk_mem_logo.xci
   read_xdc C:/devspace/school/Micronaut/jw_display_code/zedboard_master_constraints.xdc
   link_design -top main -part xc7z020clg484-1
   close_msg_db -file init_design.pb

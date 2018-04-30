@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.1 (win64) Build 2188600 Wed Apr  4 18:40:38 MDT 2018
-| Date         : Sun Apr 29 21:47:17 2018
+| Date         : Mon Apr 30 18:11:38 2018
 | Host         : JFW1702-WS running 64-bit major release  (build 9200)
 | Command      : report_timing_summary -max_paths 10 -file main_timing_summary_routed.rpt -pb main_timing_summary_routed.pb -rpx main_timing_summary_routed.rpx -warn_on_violation
 | Design       : main
@@ -56,31 +56,31 @@ Table of Contents
 
  There are 25 register/latch pins with no clock driven by root clock pin: pixel_clk_reg/Q (HIGH)
 
- There are 31 register/latch pins with no clock driven by root clock pin: vga/hcounter_reg[10]/Q (HIGH)
+ There are 40 register/latch pins with no clock driven by root clock pin: vga/hcounter_reg[10]/Q (HIGH)
 
  There is 1 register/latch pin with no clock driven by root clock pin: vga/hcounter_reg[6]/Q (HIGH)
 
- There are 31 register/latch pins with no clock driven by root clock pin: vga/hcounter_reg[7]/Q (HIGH)
+ There are 40 register/latch pins with no clock driven by root clock pin: vga/hcounter_reg[7]/Q (HIGH)
 
- There are 31 register/latch pins with no clock driven by root clock pin: vga/hcounter_reg[8]/Q (HIGH)
+ There are 40 register/latch pins with no clock driven by root clock pin: vga/hcounter_reg[8]/Q (HIGH)
 
- There are 31 register/latch pins with no clock driven by root clock pin: vga/hcounter_reg[9]/Q (HIGH)
+ There are 40 register/latch pins with no clock driven by root clock pin: vga/hcounter_reg[9]/Q (HIGH)
 
- There are 31 register/latch pins with no clock driven by root clock pin: vga/vcounter_reg[10]/Q (HIGH)
+ There are 40 register/latch pins with no clock driven by root clock pin: vga/vcounter_reg[10]/Q (HIGH)
 
  There are 18 register/latch pins with no clock driven by root clock pin: vga/vcounter_reg[3]/Q (HIGH)
 
- There are 31 register/latch pins with no clock driven by root clock pin: vga/vcounter_reg[4]/Q (HIGH)
+ There are 40 register/latch pins with no clock driven by root clock pin: vga/vcounter_reg[4]/Q (HIGH)
 
- There are 31 register/latch pins with no clock driven by root clock pin: vga/vcounter_reg[5]/Q (HIGH)
+ There are 40 register/latch pins with no clock driven by root clock pin: vga/vcounter_reg[5]/Q (HIGH)
 
- There are 31 register/latch pins with no clock driven by root clock pin: vga/vcounter_reg[6]/Q (HIGH)
+ There are 40 register/latch pins with no clock driven by root clock pin: vga/vcounter_reg[6]/Q (HIGH)
 
- There are 31 register/latch pins with no clock driven by root clock pin: vga/vcounter_reg[7]/Q (HIGH)
+ There are 40 register/latch pins with no clock driven by root clock pin: vga/vcounter_reg[7]/Q (HIGH)
 
- There are 31 register/latch pins with no clock driven by root clock pin: vga/vcounter_reg[8]/Q (HIGH)
+ There are 40 register/latch pins with no clock driven by root clock pin: vga/vcounter_reg[8]/Q (HIGH)
 
- There are 31 register/latch pins with no clock driven by root clock pin: vga/vcounter_reg[9]/Q (HIGH)
+ There are 40 register/latch pins with no clock driven by root clock pin: vga/vcounter_reg[9]/Q (HIGH)
 
 
 2. checking constant_clock
@@ -95,7 +95,7 @@ Table of Contents
 
 4. checking unconstrained_internal_endpoints
 --------------------------------------------
- There are 761 pins that are not constrained for maximum delay. (HIGH)
+ There are 770 pins that are not constrained for maximum delay. (HIGH)
 
  There are 0 pins that are not constrained for maximum delay due to constant clock.
 
