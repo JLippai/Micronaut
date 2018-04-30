@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.1 (win64) Build 2188600 Wed Apr  4 18:40:38 MDT 2018
-| Date         : Sun Apr 29 17:40:26 2018
+| Date         : Sun Apr 29 21:27:49 2018
 | Host         : JFW1702-WS running 64-bit major release  (build 9200)
 | Command      : report_drc -file main_drc_opted.rpt -pb main_drc_opted.pb -rpx main_drc_opted.rpx
 | Design       : main
@@ -24,11 +24,11 @@ Table of Contents
       Design limits: <entire design considered>
            Ruledeck: default
              Max violations: <unlimited>
-             Violations found: 3
+             Violations found: 4
 +--------+----------+------------------------+------------+
 | Rule   | Severity | Description            | Violations |
 +--------+----------+------------------------+------------+
-| DPIP-1 | Warning  | Input pipelining       | 1          |
+| DPIP-1 | Warning  | Input pipelining       | 2          |
 | DPOP-1 | Warning  | PREG Output pipelining | 1          |
 | ZPS7-1 | Warning  | PS7 block required     | 1          |
 +--------+----------+------------------------+------------+
@@ -36,6 +36,11 @@ Table of Contents
 2. REPORT DETAILS
 -----------------
 DPIP-1#1 Warning
+Input pipelining  
+DSP disp/pixelAddress1 input disp/pixelAddress1/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#2 Warning
 Input pipelining  
 DSP disp/pixelAddress2 input disp/pixelAddress2/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>

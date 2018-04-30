@@ -2,3 +2,6 @@ Running: xsim.dir/display_test_behav/xsimk.exe -simmode gui -wdb display_test_be
 Design successfully loaded
 Design Loading Memory Usage: 5216 KB (Peak: 5216 KB)
 Design Loading CPU Usage: 62 ms
+Simulation completed
+Simulation Memory Usage: 5992 KB (Peak: 5992 KB)
+Simulation CPU Usage: 62 ms

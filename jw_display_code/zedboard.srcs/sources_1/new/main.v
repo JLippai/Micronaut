@@ -33,6 +33,20 @@ module main(
     output wire       VGA_VS
     );
     
+    // Pixel Clock Variables for VGA control
+    reg pixel_clk_count = 1'd0;
+    reg pixel_clk = 1'b0;
+    
+    // Divide the Clock to 25 MHz for Pixel Clock
+    always @ (posedge(GCLK)) begin
+        if (pixel_clk_count) begin
+            pixel_clk_count <= 0;
+            pixel_clk <= ~pixel_clk;
+        end else begin
+            pixel_clk_count <= pixel_clk_count + 1;
+        end
+    end
+    
     // Drop Counters
     reg [15:0] goodDrops = 0;
     reg [15:0] badDrops = 0;
@@ -51,14 +65,23 @@ module main(
     wire [  2:0] frameSelBlock;
     wire [  2:0] frameSelByte;
     
-    VGA_timing_controller vga(
-        .clk_100MHz_inp(GCLK),
-        .rst_inp(),
-        .hcnt_outp(hcnt),
-        .vcnt_outp(vcnt),
-        .hsync_outp(VGA_HS),
-        .vsync_outp(VGA_VS),
-        .video_active_outp(vid_en)
+//    VGA_timing_controller vga(
+//        .clk_100MHz_inp(GCLK),
+//        .rst_inp(),
+//        .hcnt_outp(hcnt),
+//        .vcnt_outp(vcnt),
+//        .hsync_outp(VGA_HS),
+//        .vsync_outp(VGA_VS),
+//        .video_active_outp(vid_en)
+//    );
+    
+    vga_controller_640_60 vga (
+        .pixel_clk(pixel_clk),
+        .HS(VGA_HS),
+        .VS(VGA_VS),
+        .hcounter(hcnt),
+        .vcounter(vcnt),
+        .blank(vid_en)
     );
     
     display disp(
@@ -80,11 +103,11 @@ module main(
     
     Memory mem(
         .clk(GCLK),
-        .readBlockAddress(readBlockAddress),
-        .readByteAddress(readByteAddress),
-        .pixelBlockOut(pixelBlockOut),
-        .pixelOut(pixelOut),
-        .frameSelByte(frameSelByte)
+        .readAddressProc(readBlockAddress),
+        .readAddressVga(readByteAddress),
+        .pixelOutProc(pixelBlockOut),
+        .pixelOutVga(pixelOut),
+        .frameSelVga(frameSelByte)
     );
     
     // Clock Divider Counter

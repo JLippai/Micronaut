@@ -41,12 +41,12 @@ module display(
     parameter FONT_HEIGHT = 32;
     parameter FRAME_WIDTH = 320;
     parameter FRAME_HEIGHT = 240;
-    parameter VID_X_POS = 100;
-    parameter VID_Y_POS = 100;
-    parameter LOGO_X_POS = 600;
-    parameter LOGO_Y_POS = 700;
-    parameter TEXT_X_POS = 900;
-    parameter TEXT_Y_POS = 100;
+    parameter VID_X_POS = 0;
+    parameter VID_Y_POS = 0;
+    parameter LOGO_X_POS = 320;
+    parameter LOGO_Y_POS = 0;
+    parameter TEXT_X_POS = 128;
+    parameter TEXT_Y_POS = 328;
     
     // Frame Variables
     reg [3:0] pixelBlue;
@@ -81,8 +81,8 @@ module display(
             pixelCol >= VID_X_POS && pixelCol < (VID_X_POS + FRAME_WIDTH)) begin
             frameSel <= 3'd0;
             vidFrameEn <= 1'b1;
-            pixelAddress <= (pixelCol - LOGO_X_POS) + ((pixelRow - LOGO_Y_POS) * FRAME_WIDTH) / 16;
-            pixel_ctr <= ((pixelCol - LOGO_X_POS) + ((pixelRow - LOGO_Y_POS) * FRAME_WIDTH)) % 16;
+            pixelAddress <= (pixelCol - VID_X_POS) + ((pixelRow - VID_Y_POS) * FRAME_WIDTH) / 16;
+            pixel_ctr <= ((pixelCol - VID_X_POS) + ((pixelRow - VID_Y_POS) * FRAME_WIDTH)) % 16;
             pixelBlue <= pixelBlock[(((15-pixel_ctr) * 8) + 1) -: 2] << 2;  // Scale by 4 to convert 2 bit to 4 bit color
             pixelGreen <= pixelBlock[((15-pixel_ctr) * 8 + 4) -: 3] << 1; // Scale by 2 to convert 3 bit to 4 bit color
             pixelRed <= pixelBlock[((15-pixel_ctr) * 8 + 7) -: 3] << 1;   // Scale by 2 to convert 3 bit to 4 bit color
@@ -160,8 +160,8 @@ module display(
         end else textEn <= 1'b0;  // Not In the Text Block
     end
     
-    assign red = vid_en ? (vidFrameEn || logoEn) ? pixelRed : ((textEn && pixelEn) ? 4'b1111 : 4'b0000) : 4'b0000;
-    assign green = vid_en ? (vidFrameEn || logoEn) ? pixelGreen : ((textEn && pixelEn) ? 4'b1111 : 4'b0000) : 4'b0000;
-    assign blue = vid_en ? (vidFrameEn || logoEn) ? pixelBlue : ((textEn && pixelEn) ? 4'b1111 : 4'b0000) : 4'b0000;
+    assign red = !vid_en ? (vidFrameEn || logoEn) ? pixelRed : ((textEn && pixelEn) ? 4'b1111 : 4'b0000) : 4'b0000;
+    assign green = !vid_en ? (vidFrameEn || logoEn) ? pixelGreen : ((textEn && pixelEn) ? 4'b1111 : 4'b0000) : 4'b0000;
+    assign blue = !vid_en ? (vidFrameEn || logoEn) ? pixelBlue : ((textEn && pixelEn) ? 4'b1111 : 4'b0000) : 4'b0000;
     
 endmodule
