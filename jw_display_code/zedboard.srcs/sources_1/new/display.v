@@ -77,11 +77,13 @@ module display(
     // Calculations for which Pixels to turn on
     always @ (*) begin
         // Video Frame from camera
-        if (pixelRow >=VID_Y_POS && pixelRow < (VID_Y_POS + FRAME_HEIGHT) &&
+        if (pixelRow >= VID_Y_POS && pixelRow < (VID_Y_POS + FRAME_HEIGHT) &&
             pixelCol >= VID_X_POS && pixelCol < (VID_X_POS + FRAME_WIDTH)) begin
-            frameSel <= 3'd0;
+            
+            frameSel <= 3'd1;
             vidFrameEn <= 1'b1;
-            pixelAddress <= (pixelCol - VID_X_POS) + ((pixelRow - VID_Y_POS) * FRAME_WIDTH) / 16;
+            
+            pixelAddress <= ((pixelCol - VID_X_POS) + ((pixelRow - VID_Y_POS) * FRAME_WIDTH)) / 16;
             pixel_ctr <= ((pixelCol - VID_X_POS) + ((pixelRow - VID_Y_POS) * FRAME_WIDTH)) % 16;
             pixelBlue <= pixelBlock[(((15-pixel_ctr) * 8) + 1) -: 2] << 2;  // Scale by 4 to convert 2 bit to 4 bit color
             pixelGreen <= pixelBlock[((15-pixel_ctr) * 8 + 4) -: 3] << 1; // Scale by 2 to convert 3 bit to 4 bit color
@@ -94,7 +96,7 @@ module display(
         // CIDAR LOGO
         if (pixelRow >=LOGO_Y_POS && pixelRow < (LOGO_Y_POS + FRAME_HEIGHT) &&
             pixelCol >= LOGO_X_POS && pixelCol < (LOGO_X_POS + FRAME_WIDTH)) begin
-            frameSel <= 3'd1;
+            frameSel <= 3'd0;
             logoEn <= 1'b1;
             pixelAddress <= ((pixelCol - LOGO_X_POS) + ((pixelRow - LOGO_Y_POS) * FRAME_WIDTH)) / 16;
             pixel_ctr <= ((pixelCol - LOGO_X_POS) + ((pixelRow - LOGO_Y_POS) * FRAME_WIDTH)) % 16;
