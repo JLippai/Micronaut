@@ -83,14 +83,18 @@ module display(
             frameSel <= 3'd1;
             vidFrameEn <= 1'b1;
             
-            pixelAddress <= ((pixelCol - VID_X_POS) + ((pixelRow - VID_Y_POS) * FRAME_WIDTH)) / 16;
-            pixel_ctr <= ((pixelCol - VID_X_POS) + ((pixelRow - VID_Y_POS) * FRAME_WIDTH)) % 16;
-            pixelBlue <= pixelBlock[(((15-pixel_ctr) * 8) + 1) -: 2] << 2;  // Scale by 4 to convert 2 bit to 4 bit color
-            pixelGreen <= pixelBlock[((15-pixel_ctr) * 8 + 4) -: 3] << 1; // Scale by 2 to convert 3 bit to 4 bit color
-            pixelRed <= pixelBlock[((15-pixel_ctr) * 8 + 7) -: 3] << 1;   // Scale by 2 to convert 3 bit to 4 bit color
+            //doesn't work
+            //pixelAddress <= ((pixelCol - VID_X_POS) + ((pixelRow - VID_Y_POS) * FRAME_WIDTH)) / 5'd16;     //((pixelCol - 0) + ((pixelRow - 0) * 320)) / 16   
+            //doesn't work
+            //pixelAddress <= 32'd17/32'd16;
+            pixelAddress = ((pixelCol - VID_X_POS) + ((pixelRow - VID_Y_POS) * FRAME_WIDTH)) >> 4;
+            pixel_ctr = ((pixelCol - VID_X_POS) + ((pixelRow - VID_Y_POS) * FRAME_WIDTH)) % 16;
+            pixelBlue = pixelBlock[(((15-pixel_ctr) * 8) + 1) -: 2] << 2;  // Scale by 4 to convert 2 bit to 4 bit color
+            pixelGreen = pixelBlock[((15-pixel_ctr) * 8 + 4) -: 3] << 1; // Scale by 2 to convert 3 bit to 4 bit color
+            pixelRed = pixelBlock[((15-pixel_ctr) * 8 + 7) -: 3] << 1;   // Scale by 2 to convert 3 bit to 4 bit color
         end else begin
-            vidFrameEn <= 1'b0;
-            pixelAddress <= 17'd0;
+            vidFrameEn = 1'b0;
+            pixelAddress = 17'd0;
         end
         
         // CIDAR LOGO
@@ -98,7 +102,9 @@ module display(
             pixelCol >= LOGO_X_POS && pixelCol < (LOGO_X_POS + FRAME_WIDTH)) begin
             frameSel <= 3'd0;
             logoEn <= 1'b1;
-            pixelAddress <= ((pixelCol - LOGO_X_POS) + ((pixelRow - LOGO_Y_POS) * FRAME_WIDTH)) / 16;
+            //works
+            pixelAddress <= ((pixelCol - LOGO_X_POS) + ((pixelRow - LOGO_Y_POS) * FRAME_WIDTH)) / 16;   //((pixelCol - 320) + ((pixelRow - 0) * 320)) / 16
+            
             pixel_ctr <= ((pixelCol - LOGO_X_POS) + ((pixelRow - LOGO_Y_POS) * FRAME_WIDTH)) % 16;
             pixelBlue <= pixelBlock[(((15-pixel_ctr) * 8) + 1) -: 2] << 2;  // Scale by 4 to convert 2 bit to 4 bit color
             pixelGreen <= pixelBlock[((15-pixel_ctr) * 8 + 4) -: 3] << 1; // Scale by 2 to convert 3 bit to 4 bit color
