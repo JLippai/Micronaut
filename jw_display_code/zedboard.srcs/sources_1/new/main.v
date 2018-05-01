@@ -60,10 +60,14 @@ module main(
     // Memory Addressing
     wire [ 12:0] readBlockAddress;
     wire [ 16:0] readByteAddress;
-    wire [127:0] pixelBlockOut;
+    wire [ 12:0] writeAddress;
+    wire [127:0] pixelBlockOut; //input to imgproc, output from mem. This is the read from the video img proc needs
     wire [127:0] pixelOut;
+    wire [127:0] pixelOutRef;
+    wire [127:0] imgProcPixelOut;   //output from image processing, input to memory. bg subtracted.
     wire [  2:0] frameSelBlock;
     wire [  2:0] frameSelByte;
+    wire         writeEn;
     
 //    VGA_timing_controller vga(
 //        .clk_100MHz_inp(GCLK),
@@ -101,14 +105,34 @@ module main(
         .red(VGA_RED)
     );
     
+    
     Memory mem(
         .clk(GCLK),
+        .frameSelProc(frameSelByte),
         .readAddressProc(readBlockAddress),
+        .readAddressRef(readBlockAddress),
+        .frameSelVga(frameSelByte),        
         .readAddressVga(readByteAddress),
         .pixelOutProc(pixelBlockOut),
         .pixelOutVga(pixelOut),
-        .frameSelVga(frameSelByte)
+        .pixelOutRef(pixelOutRef),
+        .writeAddress(writeAddress),
+        .pixelIn(imgProcPixelOut), //subtracted pixel from imgproc
+        .writeEn(writeEn) //yet to be made a wire        
     );
+    
+    imgproc_scheduled imgproc(
+        .clk(GCLK),
+        .readPixel(pixelBlockOut),
+        .bgPixel(pixelOutRef),  //matches with memory's pixelOutRef
+        .currentFrame(frameSelByte),
+        .readAddress(readBlockAddress),
+        .writeAddress(writeAddress),    //yet to be made a wire [12:0]
+        .subtractedPixel(imgProcPixelOut),   //yet to be made a wire {127:0]
+        .writeEn(writeEn)    //yet to be made a wire
+        //.goodCnt(goodDrops),
+//        .badCnt(badDrops)
+        );
     
     // Clock Divider Counter
     reg [26:0] counter;

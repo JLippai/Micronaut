@@ -25,7 +25,7 @@ module imgproc_scheduled(
     input clk,
     input [127:0] readPixel,
     input [127:0] bgPixel,
-    output reg [2:0] currentFrame,
+    input [2:0] currentFrame,
     output reg [12:0] readAddress,
     output reg [12:0] writeAddress,
     output reg [127:0] subtractedPixel,
@@ -47,7 +47,7 @@ module imgproc_scheduled(
     end
     initial begin
         readAddress <= 0;
-        currentFrame <= 0;
+        //currentFrame <= 0;
         writeAddress <= 0;
         writeEn <= 0;
         subtractedPixel <= 0;

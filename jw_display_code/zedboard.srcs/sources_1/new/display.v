@@ -87,7 +87,7 @@ module display(
     always @ (posedge clk) begin
         if (counter == 100000000) begin
             counter <= 0;
-            tmpFrameSel <= (tmpFrameSel + 1'b1) % 3;
+            tmpFrameSel <= (tmpFrameSel + 1'b1) % 6;
         end else begin
             counter <= counter + 1'b1;
         end
