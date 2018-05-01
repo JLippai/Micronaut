@@ -25,7 +25,7 @@ module display(
         input  wire         rst,
         input  wire  [11:0] pixelCol,
         input  wire [ 11:0] pixelRow,
-        input  wire         vid_en,
+        input  wire         blank,
         input  wire [ 15:0] goodDrops,
         input  wire [ 15:0] badDrops,
         input  wire [ 15:0] uglyDrops,
@@ -41,12 +41,18 @@ module display(
     parameter FONT_HEIGHT = 32;
     parameter FRAME_WIDTH = 320;
     parameter FRAME_HEIGHT = 240;
-    parameter VID_X_POS = 0;
-    parameter VID_Y_POS = 0;
-    parameter LOGO_X_POS = 320;
-    parameter LOGO_Y_POS = 0;
+    parameter FR_L_X_POS = 0;     // frame left x start position
+    parameter FR_L_Y_POS = 0;     // frame left y start position
+    parameter FR_R_X_POS = 320;   // frame right x start position
+    parameter FR_R_Y_POS = 0;     // frame right y start position
     parameter TEXT_X_POS = 128;
     parameter TEXT_Y_POS = 328;
+    
+    parameter FR_L_SEL = 0;
+    parameter FR_R_SEL = 5;
+    
+    `define ENABLE  1'b1
+    `define DISABLE 1'b0
     
     // Frame Variables
     reg [3:0] pixelBlue;
@@ -61,8 +67,8 @@ module display(
     reg [4:0] char_row;
     reg [4:0] char_col;
     wire pixelEn;
-    reg vidFrameEn;
-    reg logoEn;
+    reg frameLeftEn;
+    reg frameRightEn;
     reg textEn;
     
     disp_char charDisp(
@@ -74,57 +80,73 @@ module display(
         .out(pixelEn)
     );
     
+    // Clock Divider Counter
+    reg [26:0] counter;
+    reg [ 2:0] tmpFrameSel = FR_L_SEL;
+    
+    always @ (posedge clk) begin
+        if (counter == 100000000) begin
+            counter <= 0;
+            tmpFrameSel <= (tmpFrameSel + 1'b1) % 5;
+        end else begin
+            counter <= counter + 1'b1;
+        end
+    end
+    
     // Calculations for which Pixels to turn on
     always @ (*) begin
-        // Video Frame from camera
-        if (pixelRow >= VID_Y_POS && pixelRow < (VID_Y_POS + FRAME_HEIGHT) &&
-            pixelCol >= VID_X_POS && pixelCol < (VID_X_POS + FRAME_WIDTH)) begin
+        // Left Frame display
+        if (pixelRow >= FR_L_Y_POS && pixelRow < (FR_L_Y_POS + FRAME_HEIGHT) &&
+            pixelCol >= FR_L_X_POS && pixelCol < (FR_L_X_POS + FRAME_WIDTH)) begin
             
-            frameSel = 3'd1;
-            vidFrameEn = 1'b1;
+            frameSel     <= tmpFrameSel; // selectr frame to display
             
-            //doesn't work
-            //pixelAddress <= ((pixelCol - VID_X_POS) + ((pixelRow - VID_Y_POS) * FRAME_WIDTH)) / 5'd16;     //((pixelCol - 0) + ((pixelRow - 0) * 320)) / 16   
-            //doesn't work
-           // pixelAddress <= 32'd17/32'd16;
-           //works???
-           // pixelAddress = 32'd17/32'd16;
-            pixelAddress = ((pixelCol - VID_X_POS) + ((pixelRow - VID_Y_POS) * FRAME_WIDTH)) >> 4;
-            pixel_ctr = ((pixelCol - VID_X_POS) + ((pixelRow - VID_Y_POS) * FRAME_WIDTH)) % 16;
+            frameLeftEn  <= `ENABLE;  // frame left enable
+            frameRightEn <= `DISABLE; // not in frame right
+            textEn       <= `DISABLE; // not in the text block
+            
+            // Index into pixel memory
+            pixelAddress = ((pixelCol - FR_L_X_POS) + ((pixelRow - FR_L_Y_POS) * FRAME_WIDTH)) / 16;
+            pixel_ctr = ((pixelCol - FR_L_X_POS) + ((pixelRow - FR_L_Y_POS) * FRAME_WIDTH)) % 16;
+            
+            // index into pixel block and scale color
             pixelBlue = pixelBlock[(((15-pixel_ctr) * 8) + 1) -: 2] << 2;  // Scale by 4 to convert 2 bit to 4 bit color
             pixelGreen = pixelBlock[((15-pixel_ctr) * 8 + 4) -: 3] << 1; // Scale by 2 to convert 3 bit to 4 bit color
             pixelRed = pixelBlock[((15-pixel_ctr) * 8 + 7) -: 3] << 1;   // Scale by 2 to convert 3 bit to 4 bit color
-        end else begin
-            vidFrameEn = 1'b0;
-            //pixelAddress = 17'd0;
-        end
         
-        // CIDAR LOGO
-        if (pixelRow >=LOGO_Y_POS && pixelRow < (LOGO_Y_POS + FRAME_HEIGHT) &&
-            pixelCol >= LOGO_X_POS && pixelCol < (LOGO_X_POS + FRAME_WIDTH)) begin
-            frameSel = 3'd0;
-            logoEn = 1'b1;
-            //works
-            pixelAddress = ((pixelCol - LOGO_X_POS) + ((pixelRow - LOGO_Y_POS) * FRAME_WIDTH)) / 16;   //((pixelCol - 320) + ((pixelRow - 0) * 320)) / 16
+        // Right Frame display
+        end else if (pixelRow >=FR_R_Y_POS && pixelRow < (FR_R_Y_POS + FRAME_HEIGHT) &&
+                     pixelCol >= FR_R_X_POS && pixelCol < (FR_R_X_POS + FRAME_WIDTH)) begin
             
-            pixel_ctr = ((pixelCol - LOGO_X_POS) + ((pixelRow - LOGO_Y_POS) * FRAME_WIDTH)) % 16;
+            frameSel     <= FR_R_SEL; // select frame to display
+            
+            frameLeftEn  <= `DISABLE; // frame left enable
+            frameRightEn <= `ENABLE;  // not in frame right
+            textEn       <= `DISABLE; // not in the text block 
+            
+            //Index into pixel memory
+            pixelAddress = ((pixelCol - FR_R_X_POS) + ((pixelRow - FR_R_Y_POS) * FRAME_WIDTH)) / 16;
+            pixel_ctr = ((pixelCol - FR_R_X_POS) + ((pixelRow - FR_R_Y_POS) * FRAME_WIDTH)) % 16;
+            
+            // index into pixel block and scale color
             pixelBlue = pixelBlock[(((15-pixel_ctr) * 8) + 1) -: 2] << 2;  // Scale by 4 to convert 2 bit to 4 bit color
             pixelGreen = pixelBlock[((15-pixel_ctr) * 8 + 4) -: 3] << 1; // Scale by 2 to convert 3 bit to 4 bit color
             pixelRed = pixelBlock[((15-pixel_ctr) * 8 + 7) -: 3] << 1;   // Scale by 2 to convert 3 bit to 4 bit color
-        end else begin
-            logoEn = 1'b0;
-            //pixelAddress = 17'd0;
-        end
         
         // Test Area for Good and Bad droplet reporting
-        if (pixelRow >= TEXT_Y_POS && pixelRow < (TEXT_Y_POS + (FONT_HEIGHT * 3)) &&
-            pixelCol >= TEXT_X_POS && pixelCol < (TEXT_X_POS + (FONT_WIDTH * 12))) begin
-            textEn = 1'b1;  // In the Text Block
+        end else if (pixelRow >= TEXT_Y_POS && pixelRow < (TEXT_Y_POS + (FONT_HEIGHT * 3)) &&
+                     pixelCol >= TEXT_X_POS && pixelCol < (TEXT_X_POS + (FONT_WIDTH * 12))) begin
+            
+            frameLeftEn  <= `DISABLE; // frame left enable
+            frameRightEn <= `DISABLE; // not in frame right
+            textEn       <= `ENABLE;  // not in the text block
+            
             // Calculate which text position
-            if (pixelRow >= (TEXT_Y_POS + (2 * FONT_HEIGHT))) text_grid <= ((pixelCol - TEXT_X_POS) / FONT_WIDTH) + 24;
-            else if (pixelRow >= (TEXT_Y_POS + FONT_HEIGHT)) text_grid <= ((pixelCol - TEXT_X_POS) / FONT_WIDTH) + 12;
+            if (pixelRow >= (TEXT_Y_POS + (2 * FONT_HEIGHT))) text_grid = ((pixelCol - TEXT_X_POS) / FONT_WIDTH) + 24;
+            else if (pixelRow >= (TEXT_Y_POS + FONT_HEIGHT)) text_grid = ((pixelCol - TEXT_X_POS) / FONT_WIDTH) + 12;
             else text_grid = ((pixelCol - TEXT_X_POS) / FONT_WIDTH);
             
+            // Determine which character to display based on text grid location
             case (text_grid)
                 0 : char_sel = `CHAR_G;
                 1 : char_sel = `CHAR_O;
@@ -167,11 +189,18 @@ module display(
             
             char_col = ((pixelCol - TEXT_X_POS) % FONT_WIDTH);
             char_row = ((pixelRow - TEXT_Y_POS) % FONT_HEIGHT);
-        end else textEn = 1'b0;  // Not In the Text Block
+            
+        end else begin
+            frameLeftEn  = `DISABLE;  // not in frame left
+            frameRightEn = `DISABLE;  // not in frame right
+            pixelAddress = 17'd0; // necessary?
+            textEn = `DISABLE;        // not in the text block
+        end 
+            
     end
     
-    assign red = !vid_en ? (vidFrameEn || logoEn) ? pixelRed : ((textEn && pixelEn) ? 4'b1111 : 4'b0000) : 4'b0000;
-    assign green = !vid_en ? (vidFrameEn || logoEn) ? pixelGreen : ((textEn && pixelEn) ? 4'b1111 : 4'b0000) : 4'b0000;
-    assign blue = !vid_en ? (vidFrameEn || logoEn) ? pixelBlue : ((textEn && pixelEn) ? 4'b1111 : 4'b0000) : 4'b0000;
+    assign red = !blank ? (frameLeftEn || frameRightEn) ? pixelRed : ((textEn && pixelEn) ? 4'b1111 : 4'b0000) : 4'b0000;
+    assign green = !blank ? (frameLeftEn || frameRightEn) ? pixelGreen : ((textEn && pixelEn) ? 4'b1111 : 4'b0000) : 4'b0000;
+    assign blue = !blank ? (frameLeftEn || frameRightEn) ? pixelBlue : ((textEn && pixelEn) ? 4'b1111 : 4'b0000) : 4'b0000;
     
 endmodule

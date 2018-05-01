@@ -89,7 +89,7 @@ module main(
         .rst(),
         .pixelCol(hcnt),
         .pixelRow(vcnt),
-        .vid_en(vid_en),
+        .blank(vid_en),
         .goodDrops(goodDrops),
         .badDrops(badDrops),
         .uglyDrops(uglyDrops),

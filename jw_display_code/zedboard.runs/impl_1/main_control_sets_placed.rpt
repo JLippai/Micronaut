@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.1 (win64) Build 2188600 Wed Apr  4 18:40:38 MDT 2018
-| Date         : Mon Apr 30 18:11:07 2018
+| Date         : Mon Apr 30 21:31:13 2018
 | Host         : JFW1702-WS running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file main_control_sets_placed.rpt
 | Design       : main
@@ -23,8 +23,8 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Number of unique control sets                            |    11 |
-| Unused register locations in slices containing registers |    54 |
+| Number of unique control sets                            |    15 |
+| Unused register locations in slices containing registers |    78 |
 +----------------------------------------------------------+-------+
 
 
@@ -34,10 +34,11 @@ Table of Contents
 +--------+--------------+
 | Fanout | Control Sets |
 +--------+--------------+
-|      1 |            3 |
+|      1 |            5 |
 |      3 |            1 |
 |     10 |            2 |
-|     15 |            1 |
+|     12 |            2 |
+|     13 |            1 |
 |    16+ |            4 |
 +--------+--------------+
 
@@ -48,9 +49,9 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              57 |           20 |
+| No           | No                    | No                     |              79 |           40 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |              39 |           14 |
+| No           | Yes                   | No                     |              65 |           22 |
 | Yes          | No                    | No                     |              32 |            9 |
 | Yes          | No                    | Yes                    |               0 |            0 |
 | Yes          | Yes                   | No                     |              10 |            3 |
@@ -60,20 +61,24 @@ Table of Contents
 4. Detailed Control Set Information
 -----------------------------------
 
-+-------------------+---------------------+--------------------------+------------------+----------------+
-|    Clock Signal   |    Enable Signal    |     Set/Reset Signal     | Slice Load Count | Bel Load Count |
-+-------------------+---------------------+--------------------------+------------------+----------------+
-|  vga/vidFrameEn   |                     | vga/logoEn               |                1 |              1 |
-|  pixel_clk        |                     | vga/HS0                  |                1 |              1 |
-|  pixel_clk        |                     | vga/VS0                  |                1 |              1 |
-|  pixel_clk        |                     |                          |                2 |              3 |
-|  pixel_clk        |                     | vga/vcounter             |                4 |             10 |
-|  pixel_clk        | vga/vcounter        | vga/vcounter[10]_i_1_n_0 |                3 |             10 |
-|  GCLK_IBUF_BUFG   |                     |                          |                5 |             15 |
-|  vga/p_1_in       |                     |                          |                7 |             18 |
-|  vga/VGA_RED[1]_0 |                     |                          |                6 |             21 |
-|  GCLK_IBUF_BUFG   |                     | counter[26]_i_1_n_0      |                7 |             26 |
-|  GCLK_IBUF_BUFG   | counter[26]_i_1_n_0 |                          |                9 |             32 |
-+-------------------+---------------------+--------------------------+------------------+----------------+
++--------------------------+------------------------+--------------------------+------------------+----------------+
+|       Clock Signal       |      Enable Signal     |     Set/Reset Signal     | Slice Load Count | Bel Load Count |
++--------------------------+------------------------+--------------------------+------------------+----------------+
+| ~vga/frameSel15_out      |                        | vga/frameSel15_out       |                1 |              1 |
+|  pixel_clk               |                        | vga/HS0                  |                1 |              1 |
+|  pixel_clk               |                        | vga/VS0                  |                1 |              1 |
+|  disp/frameLeftEn_reg/G0 |                        |                          |                1 |              1 |
+|  disp/textEn_reg/G0      |                        |                          |                1 |              1 |
+|  pixel_clk               |                        |                          |                1 |              3 |
+|  pixel_clk               |                        | vga/vcounter             |                5 |             10 |
+|  pixel_clk               | vga/vcounter           | vga/vcounter[10]_i_1_n_0 |                3 |             10 |
+|  vga/frameLeftEn1        |                        |                          |                9 |             12 |
+|  vga/E[0]                |                        |                          |                7 |             12 |
+| ~vga/frameLeftEn1        |                        |                          |                6 |             13 |
+|  GCLK_IBUF_BUFG          |                        | disp/counter[26]_i_1_n_0 |                7 |             26 |
+|  GCLK_IBUF_BUFG          |                        | counter[26]_i_1__0_n_0   |                7 |             26 |
+|  GCLK_IBUF_BUFG          | counter[26]_i_1__0_n_0 |                          |                9 |             32 |
+|  GCLK_IBUF_BUFG          |                        |                          |               15 |             37 |
++--------------------------+------------------------+--------------------------+------------------+----------------+
 
 

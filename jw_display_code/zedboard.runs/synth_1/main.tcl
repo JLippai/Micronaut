@@ -34,6 +34,7 @@ add_files C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/n
 add_files C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/bluenocrossing.coe
 add_files C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/cidarlogo.coe
 add_files C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/background.coe
+add_files c:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/bluecrossing.coe
 read_verilog -library xil_defaultlib {
   C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/Memory.v
   C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/VGAcontrol.v
@@ -41,11 +42,20 @@ read_verilog -library xil_defaultlib {
   C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/display.v
   C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/new/main.v
 }
+read_ip -quiet c:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/ip/blk_mem_bluenocross/blk_mem_bluenocross.xci
+set_property used_in_implementation false [get_files -all c:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/ip/blk_mem_bluenocross/blk_mem_bluenocross_ooc.xdc]
+
 read_ip -quiet C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci
 set_property used_in_implementation false [get_files -all c:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0_ooc.xdc]
 
 read_ip -quiet C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/ip/blk_mem_logo/blk_mem_logo.xci
 set_property used_in_implementation false [get_files -all c:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/ip/blk_mem_logo/blk_mem_logo_ooc.xdc]
+
+read_ip -quiet c:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/ip/blk_mem_redcross/blk_mem_redcross.xci
+set_property used_in_implementation false [get_files -all c:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/ip/blk_mem_redcross/blk_mem_redcross_ooc.xdc]
+
+read_ip -quiet c:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/ip/blk_mem_bluecross/blk_mem_bluecross.xci
+set_property used_in_implementation false [get_files -all c:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/ip/blk_mem_bluecross/blk_mem_bluecross_ooc.xdc]
 
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -58,6 +68,8 @@ foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
 read_xdc C:/devspace/school/Micronaut/jw_display_code/zedboard_master_constraints.xdc
 set_property used_in_implementation false [get_files C:/devspace/school/Micronaut/jw_display_code/zedboard_master_constraints.xdc]
 
+read_xdc dont_touch.xdc
+set_property used_in_implementation false [get_files dont_touch.xdc]
 set_param ips.enableIPCacheLiteLoad 0
 close [open __synthesis_is_running__ w]
 
