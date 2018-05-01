@@ -87,7 +87,7 @@ module display(
     always @ (posedge clk) begin
         if (counter == 100000000) begin
             counter <= 0;
-            tmpFrameSel <= (tmpFrameSel + 1'b1) % 5;
+            tmpFrameSel <= (tmpFrameSel + 1'b1) % 3;
         end else begin
             counter <= counter + 1'b1;
         end
@@ -106,7 +106,7 @@ module display(
             textEn       <= `DISABLE; // not in the text block
             
             // Index into pixel memory
-            pixelAddress = ((pixelCol - FR_L_X_POS) + ((pixelRow - FR_L_Y_POS) * FRAME_WIDTH)) / 16;
+            pixelAddress = ((pixelCol - FR_L_X_POS) + ((pixelRow - FR_L_Y_POS) * FRAME_WIDTH)) >> 4;    //equivalent to division by 16
             pixel_ctr = ((pixelCol - FR_L_X_POS) + ((pixelRow - FR_L_Y_POS) * FRAME_WIDTH)) % 16;
             
             // index into pixel block and scale color
@@ -125,7 +125,7 @@ module display(
             textEn       <= `DISABLE; // not in the text block 
             
             //Index into pixel memory
-            pixelAddress = ((pixelCol - FR_R_X_POS) + ((pixelRow - FR_R_Y_POS) * FRAME_WIDTH)) / 16;
+            pixelAddress = ((pixelCol - FR_R_X_POS) + ((pixelRow - FR_R_Y_POS) * FRAME_WIDTH)) >> 4;    //equivalent to division by 16
             pixel_ctr = ((pixelCol - FR_R_X_POS) + ((pixelRow - FR_R_Y_POS) * FRAME_WIDTH)) % 16;
             
             // index into pixel block and scale color

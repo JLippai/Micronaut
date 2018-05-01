@@ -127,9 +127,15 @@ module Memory(
                            ((frameSelProc == 4) ? refFramePixelProc :
                            ((frameSelProc == 5) ? outFramePixelProc : refFramePixelProc)))));
                            
+                           //frame0=red drop
+                           //frame1=blue drop
+                           //frame2=blue and red drop
+                           //refFrame=reference frame
+                           //outFrame=reserved from for what is displayed on the right
+                           
     assign pixelOutVga = (frameSelVga == 0) ? frame0PixelVga :
-                         ((frameSelVga == 1) ? frame1PixelVga :
-                         ((frameSelVga == 2) ? frame2PixelVga :
+                         ((frameSelVga == 1) ? frame2PixelVga :
+                         ((frameSelVga == 2) ? frame1PixelVga :
                          ((frameSelVga == 3) ? frame1PixelVga :
                          ((frameSelVga == 4) ? refFramePixelVga :
                          ((frameSelVga == 5) ? outFramePixelVga : refFramePixelVga)))));
