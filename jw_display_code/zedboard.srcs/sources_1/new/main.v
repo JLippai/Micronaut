@@ -58,22 +58,17 @@ module main(
     wire vid_en;
     
     // Memory Addressing
-    wire [ 12:0] readBlockAddress;
-    wire [ 16:0] readByteAddress;
-    wire [127:0] pixelBlockOut;
-    wire [127:0] pixelOut;
-    wire [  2:0] frameSelBlock;
-    wire [  2:0] frameSelByte;
-    
-//    VGA_timing_controller vga(
-//        .clk_100MHz_inp(GCLK),
-//        .rst_inp(),
-//        .hcnt_outp(hcnt),
-//        .vcnt_outp(vcnt),
-//        .hsync_outp(VGA_HS),
-//        .vsync_outp(VGA_VS),
-//        .video_active_outp(vid_en)
-//    );
+    wire [ 12:0] readAddressProc;
+    wire [ 12:0] readAddressVga;
+    wire [ 12:0] readAddressRef;
+    wire [127:0] pixelOutProc;
+    wire [127:0] pixelOutVga;
+    wire [127:0] pixelOutRef;
+    wire [  2:0] frameSelProc;
+    wire [  2:0] frameSelVga;
+    reg  [ 12:0] writeAddress;
+    reg  [127:0] pixelIn;
+    reg          writeEn;
     
     vga_controller_640_60 vga (
         .pixel_clk(pixel_clk),
@@ -93,9 +88,9 @@ module main(
         .goodDrops(goodDrops),
         .badDrops(badDrops),
         .uglyDrops(uglyDrops),
-        .pixelBlock(pixelOut),
-        .frameSel(frameSelByte),
-        .pixelAddress(readByteAddress),
+        .pixelBlock(pixelOutVga),
+        .frameSel(frameSelVga),
+        .pixelAddress(readAddressVga),
         .blue(VGA_BLU),
         .green(VGA_GRN),
         .red(VGA_RED)
@@ -103,11 +98,17 @@ module main(
     
     Memory mem(
         .clk(GCLK),
-        .readAddressProc(readBlockAddress),
-        .readAddressVga(readByteAddress),
-        .pixelOutProc(pixelBlockOut),
-        .pixelOutVga(pixelOut),
-        .frameSelVga(frameSelByte)
+        .readAddressProc(readAddressProc),
+        .readAddressVga(readAddressVga),
+        .readAddressRef(readAddressRef),
+        .pixelOutProc(pixelOutProc),
+        .pixelOutVga(pixelOutVga),
+        .pixelOutRef(pixelOutRef),
+        .frameSelProc(frameSelProc),
+        .frameSelVga(frameSelVga),
+        .writeAddress(writeAddress),
+        .pixelIn(pixelIn),
+        .writeEn(writeEn)
     );
     
     // Clock Divider Counter
@@ -123,6 +124,41 @@ module main(
         end else begin
             counter <= counter + 1'b1;
         end
+    end
+    
+    // Write to mem test
+    reg [1:0] state = 0;
+    always @ (posedge GCLK) begin
+        case (state)
+        // Calculate write address
+        0: begin
+            // Left Frame display
+            if (vcnt >= 0 && vcnt < (0 + 240) &&
+                hcnt >= 320 && hcnt < (320 + 320)) begin
+                
+                // Index into pixel memory
+                writeAddress = ((hcnt - 320) + ((vcnt - 0) * 320)) >> 4;    //equivalent to division by 16
+                pixelIn = 128'd0;
+            end
+            else writeAddress = 1;
+            
+            state = 1;
+            
+          end
+        
+        // write to memory?  
+        1: begin
+               if (writeAddress % 20 == 0) writeEn = 1;
+               state = 2;
+           end
+          
+        // Reset Write En
+        2: begin
+               writeEn = 0;
+               state = 0;
+           end
+          
+       endcase
     end
     
 endmodule

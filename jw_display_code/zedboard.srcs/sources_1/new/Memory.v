@@ -25,7 +25,7 @@ module Memory(
     input   [12:0] readAddressProc,
     input   [12:0] readAddressRef,
     input    [2:0] frameSelVga,
-    input   [16:0] readAddressVga,
+    input   [12:0] readAddressVga,
     output [127:0] pixelOutProc,
     output [127:0] pixelOutVga,
     output [127:0] pixelOutRef,
@@ -47,13 +47,11 @@ module Memory(
       
       blk_mem_logo outFrame (
         .clka(clk),
-        .ena(1),
         .wea(writeEn),
         .addra(writeAddress),
         .dina(pixelIn),
         .douta(outFramePixelProc),
         .clkb(clk),
-        .enb(1),
         .web(0),
         .addrb(readAddressVga),
         .dinb(0),
