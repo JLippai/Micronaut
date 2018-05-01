@@ -1,4 +1,4 @@
-set_property SRC_FILE_INFO {cfile:C:/devspace/school/Micronaut/jw_display_code/zedboard_master_constraints.xdc rfile:../../../zedboard_master_constraints.xdc id:1} [current_design]
+set_property SRC_FILE_INFO {cfile:C:/Users/jal02005/Documents/fixed_micro/Micronaut/jw_display_code/zedboard_master_constraints.xdc rfile:../../../zedboard_master_constraints.xdc id:1} [current_design]
 set_property src_info {type:XDC file:1 line:82 export:INPUT save:INPUT read:READ} [current_design]
 set_property PACKAGE_PIN Y9 [get_ports {GCLK}];  # "GCLK"
 set_property src_info {type:XDC file:1 line:175 export:INPUT save:INPUT read:READ} [current_design]

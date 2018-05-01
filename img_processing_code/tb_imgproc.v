@@ -26,7 +26,7 @@ module tb_imgproc(
     reg clk;
     reg [127:0] readPixel;
     reg [127:0] bgPixel;
-    wire [2:0] currentFrame;
+    reg [2:0] currentFrame;
     wire [12:0] readAddress;
     wire [12:0] writeAddress;
     wire [127:0] subtractedPixel;

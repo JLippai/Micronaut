@@ -1,10 +1,10 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.1 (win64) Build 2188600 Wed Apr  4 18:40:38 MDT 2018
-// Date        : Sun Apr 29 20:21:31 2018
-// Host        : JFW1702-WS running 64-bit major release  (build 9200)
+// Date        : Tue May  1 11:13:21 2018
+// Host        : DESKTOP-9C1N602 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub
-//               c:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/ip/blk_mem_logo/blk_mem_logo_stub.v
+//               C:/Users/jal02005/Documents/fixed_micro/Micronaut/jw_display_code/zedboard.srcs/sources_1/ip/blk_mem_logo/blk_mem_logo_stub.v
 // Design      : blk_mem_logo
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7z020clg484-1
@@ -16,16 +16,16 @@
 (* x_core_info = "blk_mem_gen_v8_4_1,Vivado 2018.1" *)
 module blk_mem_logo(clka, ena, wea, addra, dina, douta, clkb, enb, web, addrb, 
   dinb, doutb)
-/* synthesis syn_black_box black_box_pad_pin="clka,ena,wea[15:0],addra[12:0],dina[127:0],douta[127:0],clkb,enb,web[15:0],addrb[12:0],dinb[127:0],doutb[127:0]" */;
+/* synthesis syn_black_box black_box_pad_pin="clka,ena,wea[0:0],addra[12:0],dina[127:0],douta[127:0],clkb,enb,web[0:0],addrb[12:0],dinb[127:0],doutb[127:0]" */;
   input clka;
   input ena;
-  input [15:0]wea;
+  input [0:0]wea;
   input [12:0]addra;
   input [127:0]dina;
   output [127:0]douta;
   input clkb;
   input enb;
-  input [15:0]web;
+  input [0:0]web;
   input [12:0]addrb;
   input [127:0]dinb;
   output [127:0]doutb;

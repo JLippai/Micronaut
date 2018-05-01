@@ -30,7 +30,7 @@ module euclid_px_diff(
     wire [1:0] b1, b2;
     
     wire [2:0] rdiff, gdiff;
-    wire [1:0] bdiff;
+    wire [2:0] bdiff;
     assign r1[2:0] = px1[7:5];
     assign g1 = px1[4:2];
     assign b1 = px1[1:0];
@@ -41,7 +41,7 @@ module euclid_px_diff(
     
     assign rdiff = (r1 > r2) ? r1 - r2 : r2 - r1;
     assign gdiff = (g1 > g2) ? g1 - g2 : g2 - g1;
-    assign bdiff = (b1 > b2) ? b1 - b2 : b2 - b1;
+    assign bdiff = (b1 > b2) ? (b1 - b2) << 1 : (b2 - b1) << 1;
     
     assign diff = rdiff + gdiff + bdiff;
 endmodule

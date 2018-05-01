@@ -134,8 +134,8 @@ module Memory(
                            //outFrame=reserved from for what is displayed on the right
                            
     assign pixelOutVga = (frameSelVga == 0) ? frame0PixelVga :
-                         ((frameSelVga == 1) ? frame2PixelVga :
-                         ((frameSelVga == 2) ? frame1PixelVga :
+                         ((frameSelVga == 1) ? frame1PixelVga :
+                         ((frameSelVga == 2) ? frame2PixelVga :
                          ((frameSelVga == 3) ? frame1PixelVga :
                          ((frameSelVga == 4) ? refFramePixelVga :
                          ((frameSelVga == 5) ? outFramePixelVga : refFramePixelVga)))));

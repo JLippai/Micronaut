@@ -1,10 +1,10 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.1 (win64) Build 2188600 Wed Apr  4 18:40:38 MDT 2018
-// Date        : Mon Apr 30 21:09:26 2018
+// Date        : Mon Apr 30 21:09:25 2018
 // Host        : JFW1702-WS running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode synth_stub
-//               c:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/ip/blk_mem_bluecross/blk_mem_bluecross_stub.v
+// Command     : write_verilog -force -mode synth_stub -rename_top blk_mem_bluecross -prefix
+//               blk_mem_bluecross_ blk_mem_bluecross_stub.v
 // Design      : blk_mem_bluecross
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7z020clg484-1

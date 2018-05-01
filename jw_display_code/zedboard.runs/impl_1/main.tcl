@@ -69,18 +69,18 @@ set rc [catch {
   create_project -in_memory -part xc7z020clg484-1
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
-  set_property webtalk.parent_dir C:/devspace/school/Micronaut/jw_display_code/zedboard.cache/wt [current_project]
-  set_property parent.project_path C:/devspace/school/Micronaut/jw_display_code/zedboard.xpr [current_project]
-  set_property ip_output_repo C:/devspace/school/Micronaut/jw_display_code/zedboard.cache/ip [current_project]
+  set_property webtalk.parent_dir C:/Users/jal02005/Documents/fixed_micro/Micronaut/jw_display_code/zedboard.cache/wt [current_project]
+  set_property parent.project_path C:/Users/jal02005/Documents/fixed_micro/Micronaut/jw_display_code/zedboard.xpr [current_project]
+  set_property ip_output_repo C:/Users/jal02005/Documents/fixed_micro/Micronaut/jw_display_code/zedboard.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
   set_property XPM_LIBRARIES XPM_MEMORY [current_project]
-  add_files -quiet C:/devspace/school/Micronaut/jw_display_code/zedboard.runs/synth_1/main.dcp
-  read_ip -quiet c:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/ip/blk_mem_bluenocross/blk_mem_bluenocross.xci
-  read_ip -quiet C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci
-  read_ip -quiet C:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/ip/blk_mem_logo/blk_mem_logo.xci
-  read_ip -quiet c:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/ip/blk_mem_redcross/blk_mem_redcross.xci
-  read_ip -quiet c:/devspace/school/Micronaut/jw_display_code/zedboard.srcs/sources_1/ip/blk_mem_bluecross/blk_mem_bluecross.xci
-  read_xdc C:/devspace/school/Micronaut/jw_display_code/zedboard_master_constraints.xdc
+  add_files -quiet C:/Users/jal02005/Documents/fixed_micro/Micronaut/jw_display_code/zedboard.runs/synth_1/main.dcp
+  read_ip -quiet C:/Users/jal02005/Documents/fixed_micro/Micronaut/jw_display_code/zedboard.srcs/sources_1/ip/blk_mem_bluenocross/blk_mem_bluenocross.xci
+  read_ip -quiet C:/Users/jal02005/Documents/fixed_micro/Micronaut/jw_display_code/zedboard.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci
+  read_ip -quiet C:/Users/jal02005/Documents/fixed_micro/Micronaut/jw_display_code/zedboard.srcs/sources_1/ip/blk_mem_logo/blk_mem_logo.xci
+  read_ip -quiet C:/Users/jal02005/Documents/fixed_micro/Micronaut/jw_display_code/zedboard.srcs/sources_1/ip/blk_mem_redcross/blk_mem_redcross.xci
+  read_ip -quiet C:/Users/jal02005/Documents/fixed_micro/Micronaut/jw_display_code/zedboard.srcs/sources_1/ip/blk_mem_bluecross/blk_mem_bluecross.xci
+  read_xdc C:/Users/jal02005/Documents/fixed_micro/Micronaut/jw_display_code/zedboard_master_constraints.xdc
   link_design -top main -part xc7z020clg484-1
   close_msg_db -file init_design.pb
 } RESULT]

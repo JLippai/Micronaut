@@ -33,6 +33,7 @@ module main_test(
     wire [3:0] VGA_RED;
     wire VGA_HS;
     wire VGA_VS;
+    wire [12:0] readBlockAddress;
     
     main uut (
         .GCLK(GCLK),
@@ -41,7 +42,8 @@ module main_test(
         .VGA_GRN(VGA_GRN),
         .VGA_RED(VGA_RED),
         .VGA_HS(VGA_HS),
-        .VGA_VS(VGA_VS)
+        .VGA_VS(VGA_VS),
+        .readBlockAddress(readBlockAddress)
     );
     
     initial begin
